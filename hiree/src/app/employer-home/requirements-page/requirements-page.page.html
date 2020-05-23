@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><ion-chip>
+      <ion-avatar>
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjYzVkYmZmIiBkPSJNMCAwaDUxMnY1MTJIMHoiLz48cGF0aCBkPSJNMjU2IDMwNGM2MS42IDAgMTEyLTUwLjQgMTEyLTExMlMzMTcuNiA4MCAyNTYgODBzLTExMiA1MC40LTExMiAxMTIgNTAuNCAxMTIgMTEyIDExMnptMCA0MGMtNzQuMiAwLTIyNCAzNy44LTIyNCAxMTJ2NTZoNDQ4di01NmMwLTc0LjItMTQ5LjgtMTEyLTIyNC0xMTJ6IiBmaWxsPSIjODJhZWZmIi8+PC9zdmc+" />
+      </ion-avatar>
+      <ion-label>Hotel_Name</ion-label>
+    </ion-chip></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+   <ion-item>
+          <ion-label>Position to be offered:</ion-label>
+          <ion-select multiple="true" cancelText="Cancel" okText="Confirm">
+            <ion-select-option value="Ba">Bartender</ion-select-option>
+            <ion-select-option value="Che">Chef</ion-select-option>
+            <ion-select-option value="de">Delivery Person</ion-select-option>
+            <ion-select-option value="ja">Janitor</ion-select-option>
+            <ion-select-option value="ma">Manager</ion-select-option>            
+            <ion-select-option value="re">Receptionist</ion-select-option>
+            <ion-select-option value="wa">Waiter</ion-select-option>        
+          </ion-select>
+   </ion-item>
+    <ion-item>
+          <ion-label position="floating">Previous Experience(in years):</ion-label>
+          <ion-input type = 'number' ></ion-input>
+   </ion-item>
+   <ion-item>
+        <ion-label>Gender:</ion-label>
+          <ion-select interface="popover">
+            <ion-select-option value="Me">Male</ion-select-option>
+            <ion-select-option value="Fe">Female</ion-select-option>
+            <ion-select-option value="Ot">Others</ion-select-option>
+          </ion-select>
+   </ion-item>        
+   <ion-item>
+        <ion-label position="floating">Age:</ion-label>
+        <ion-input type = 'number' ></ion-input>
+   </ion-item>
+   <ion-item>
+          <ion-label>Education:</ion-label>
+          <ion-select interface="popover">
+            <ion-select-option value="Non">None</ion-select-option>
+            <ion-select-option value="tn">Tenth</ion-select-option>
+            <ion-select-option value="intt">Intermediate</ion-select-option>
+            <ion-select-option value="Dp">Diploma</ion-select-option>
+            <ion-select-option value="Dg">Degree</ion-select-option>
+            <ion-select-option value="Ms">Masters</ion-select-option>
+            <ion-select-option value="PD">Ph.D</ion-select-option>
+          </ion-select>
+   </ion-item> 
+   <ion-item>
+          <ion-label position="floating">Additional Skills:</ion-label>
+          <ion-input type = 'text' ></ion-input>
+   </ion-item>
+  
+   <ion-button class="ion-margin-vertical" size='default' color="secondary" expand="full">
+    Search 
+  </ion-button>
+
+
+</ion-content>

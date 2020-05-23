@@ -1,0 +1,142 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> <h4> Register As Employee </h4> </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+   
+   <ion-item>
+        <ion-label position="floating">Aadhar Number</ion-label>
+        <ion-input type = 'number' ></ion-input>
+   </ion-item>
+   <ion-item>
+        <ion-label position="floating">Age:</ion-label>
+        <ion-input type = 'number' ></ion-input>
+   </ion-item>
+   <ion-item>
+        <ion-label>Gender:</ion-label>
+          <ion-select interface="popover">
+            <ion-select-option value="M">Male</ion-select-option>
+            <ion-select-option value="F">Female</ion-select-option>
+            <ion-select-option value="O">Others</ion-select-option>
+          </ion-select>
+   </ion-item>        
+   <ion-item>
+        <ion-label position="floating">Address 1:</ion-label>
+        <ion-input type = 'text'></ion-input>
+   </ion-item>
+   <ion-item>
+        <ion-label position="floating">Address 2:</ion-label>
+        <ion-input type = 'text'></ion-input>
+   </ion-item>
+   <ion-item>
+        <ion-label position="floating">City:</ion-label>
+        <ion-input type = 'text'></ion-input>
+   </ion-item>
+   <ion-item>
+        <ion-label>State:</ion-label>
+         <ion-select interface="popover">
+            <ion-select-option value="APE">Andhra Pradesh</ion-select-option>
+            <ion-select-option value="ARE">Arunachal Pradesh</ion-select-option>
+            <ion-select-option value="ASE">Assam</ion-select-option>
+            <ion-select-option value="BRE">Bihar</ion-select-option>
+            <ion-select-option value="CHE">Chhattisgarh</ion-select-option>
+            <ion-select-option value="GAE">Goa</ion-select-option>
+            <ion-select-option value="GJE">Gujarat</ion-select-option>
+            <ion-select-option value="HRE">Haryana</ion-select-option>
+            <ion-select-option value="HPE">Himachal Pradesh</ion-select-option>
+            <ion-select-option value="JKE">Jammu & Kashmir</ion-select-option>
+            <ion-select-option value="JHE">Jharkhand</ion-select-option>
+            <ion-select-option value="KAE">Karnataka</ion-select-option>
+            <ion-select-option value="KLE">Kerala</ion-select-option>
+            <ion-select-option value="LAE">Ladakh</ion-select-option>
+            <ion-select-option value="MPE">Madhya Pradesh</ion-select-option>
+            <ion-select-option value="MHE">Maharashtra</ion-select-option>
+            <ion-select-option value="MNE">Manipur</ion-select-option>
+            <ion-select-option value="MLE">Meghalaya</ion-select-option>
+            <ion-select-option value="MZE">Mizoram</ion-select-option>
+            <ion-select-option value="NLE">Nagaland</ion-select-option>
+            <ion-select-option value="ORE">Oddissa</ion-select-option>
+            <ion-select-option value="PBE">Punjab</ion-select-option>
+            <ion-select-option value="RJE">Rajasthan</ion-select-option>
+            <ion-select-option value="SKE">Sikkim</ion-select-option>
+            <ion-select-option value="TNE">Tamil Nadu</ion-select-option>
+            <ion-select-option value="TSE">Telangana</ion-select-option>
+            <ion-select-option value="TRE">Tripura</ion-select-option>
+            <ion-select-option value="UPE">Uttar Pradesh</ion-select-option>
+            <ion-select-option value="UKE">Uttrakhand</ion-select-option>
+            <ion-select-option value="WBE">West Bengal</ion-select-option>
+            
+         </ion-select>
+   </ion-item>
+   <ion-item>
+          <ion-label>Type of Hotel to work in:</ion-label>
+          <ion-select multiple="true" cancelText="Cancel" okText="Confirm">
+            <ion-select-option value="FSE">5 Star</ion-select-option>
+            <ion-select-option value="THE">3 Star</ion-select-option>
+            <ion-select-option value="FDE">Fine Dining</ion-select-option>
+            <ion-select-option value="CDE">Casual Dining</ion-select-option>
+            <ion-select-option value="PUE">Pubs & Bars</ion-select-option>
+            <ion-select-option value="CBE">Cafe and Bistro</ion-select-option>
+            <ion-select-option value="FFE">Fast Foods</ion-select-option>
+            <ion-select-option value="QSE">Quick Service</ion-select-option>
+            <ion-select-option value="MOE">Mobile Hotel</ion-select-option>
+            <ion-select-option value="BKE">Bakery</ion-select-option>
+            <ion-select-option value="SSE">Sweet-Shop</ion-select-option>
+            <ion-select-option value="ICE">Ice-Cream Shop</ion-select-option>
+            <ion-select-option value="JBE">Juice Bar</ion-select-option>
+          </ion-select>
+   </ion-item>
+   <ion-item>
+          <ion-label>Education:</ion-label>
+          <ion-select interface="popover">
+            <ion-select-option value="None">None</ion-select-option>
+            <ion-select-option value="ten">Tenth</ion-select-option>
+            <ion-select-option value="in">Intermediate</ion-select-option>
+            <ion-select-option value="Dip">Diploma</ion-select-option>
+            <ion-select-option value="Deg">Degree</ion-select-option>
+            <ion-select-option value="Mas">Masters</ion-select-option>
+            <ion-select-option value="PhD">Ph.D</ion-select-option>
+          </ion-select>
+   </ion-item>    
+   <ion-item>
+          <ion-label>Area of Choice:</ion-label>
+          <ion-select multiple="true" cancelText="Cancel" okText="Confirm">
+            <ion-select-option value="Bar">Bartender</ion-select-option>
+            <ion-select-option value="Chef">Chef</ion-select-option>
+            <ion-select-option value="del">Delivery Person</ion-select-option>
+            <ion-select-option value="jan">Janitor</ion-select-option>
+            <ion-select-option value="man">Manager</ion-select-option>            
+            <ion-select-option value="rec">Receptionist</ion-select-option>
+            <ion-select-option value="wai">Waiter</ion-select-option>        
+          </ion-select>
+   </ion-item>
+   <ion-item>
+          <ion-label>Time of work:</ion-label>
+          <ion-select interface="popover">
+            <ion-select-option value="t1">0-6 hrs</ion-select-option>
+            <ion-select-option value="t2">6-8 hrs</ion-select-option>
+            <ion-select-option value="t3">8-14 hrs</ion-select-option>
+          </ion-select>
+   </ion-item>
+   <ion-item>
+          <ion-label position="floating">Previous Experience(in years):</ion-label>
+          <ion-input type = 'number' ></ion-input>
+   </ion-item>
+   <ion-item>
+          <ion-label position="floating">Place of Experience:</ion-label>
+          <ion-input type = 'text' ></ion-input>
+   </ion-item>
+   <ion-item>
+          <ion-label position="floating">Additional Skills:</ion-label>
+          <ion-input type = 'text' ></ion-input>
+   </ion-item>
+   
+   
+
+  
+
+  <ion-button class="ion-margin-vertical" size='default' color="secondary" expand="full" [routerLink]="['/login']">
+    Go To Payment
+  </ion-button>
+</ion-content>
