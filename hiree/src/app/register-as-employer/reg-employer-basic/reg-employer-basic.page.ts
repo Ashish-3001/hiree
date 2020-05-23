@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { RegisterAsEmployerPage } from '../register-as-employer.page';
 import { PostService } from 'src/app/servvices/post.service';
-
+import { NgForm } from '@angular/forms';
 const TOKEN_KEY = 'auth-token';
 
 @Component({
@@ -13,12 +13,7 @@ const TOKEN_KEY = 'auth-token';
   styleUrls: ['./reg-employer-basic.page.scss'],
 })
 export class RegEmployerBasicPage implements OnInit {
-  ac =6;
-  eyer_name ="";
-  eyer_phone ="";
-  eyer_pas ="";
-  eyer_email ="";
-
+ 
   
 
   constructor(private http: HttpClient, private router: Router, private postdata:PostService) { }
@@ -26,11 +21,11 @@ export class RegEmployerBasicPage implements OnInit {
   ngOnInit() {
   }
 
-  basic_details() {
+  basic_details(form: NgForm) {
     var postdata = {
-      user_phone_no: this.eyer_phone,
-      user_email: this.eyer_email,
-      user_password: this.eyer_pas,
+      user_phone_no: form.value.phone,
+      user_email: form.value.email,
+      user_password: form.value.password,
       user_type: "employee",
       user_otp: 23456,
     }
