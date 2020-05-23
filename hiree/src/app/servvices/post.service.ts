@@ -23,7 +23,7 @@ export class PostService {
 
   post_employer_details(postdata: any) {
     postdata.user_id = this.user_id.value;
-    this.http.post('http://127.0.0.1:8000/EmployeeDetails/', postdata).subscribe( (data) =>{
+    this.http.post('http://127.0.0.1:8000/EmployerDetails/', postdata).subscribe( (data) =>{
       console.log("success");
       this.data =data;
       this.user_id.next(this.data.id);

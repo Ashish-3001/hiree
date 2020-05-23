@@ -13,7 +13,7 @@ const TOKEN_KEY = 'auth-token';
   styleUrls: ['./reg-employer-basic.page.scss'],
 })
 export class RegEmployerBasicPage implements OnInit {
-  ac =6;
+  
   eyer_name ="";
   eyer_phone ="";
   eyer_pas ="";
@@ -31,7 +31,7 @@ export class RegEmployerBasicPage implements OnInit {
       user_phone_no: this.eyer_phone,
       user_email: this.eyer_email,
       user_password: this.eyer_pas,
-      user_type: "employee",
+      user_type: "employer",
       user_otp: 23456,
     }
 
