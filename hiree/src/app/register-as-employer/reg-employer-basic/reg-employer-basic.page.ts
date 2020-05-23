@@ -26,7 +26,7 @@ export class RegEmployerBasicPage implements OnInit {
       user_phone_no: form.value.phone,
       user_email: form.value.email,
       user_password: form.value.password,
-      user_type: "employee",
+      user_type: "employer",
       user_otp: 23456,
     }
 
