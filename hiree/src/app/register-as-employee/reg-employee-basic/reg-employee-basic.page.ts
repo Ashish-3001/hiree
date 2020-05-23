@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from 'src/app/servvices/post.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-reg-employee-basic',
@@ -8,23 +9,17 @@ import { PostService } from 'src/app/servvices/post.service';
 })
 export class RegEmployeeBasicPage implements OnInit {
 
-  ac =6;
-  eyer_name ="";
-  eyer_phone ="";
-  eyer_pas ="";
-  eyer_email ="";
-
-
+  
   constructor(private postdata: PostService) { }
 
   ngOnInit() {
   }
 
-  basic_details() {
+  basic_details(form: NgForm) {
     var postdata = {
-      user_phone_no: this.eyer_phone,
-      user_email: this.eyer_email,
-      user_password: this.eyer_pas,
+      user_phone_no: form.value.phone,
+      user_email: form.value.email,
+      user_password: form.value.password,
       user_type: "employee",
       user_otp: 23456,
     }
