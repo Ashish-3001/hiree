@@ -9,7 +9,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
    <ion-item>
           <ion-label>Position to be offered:</ion-label>
           <ion-select multiple="true" cancelText="Cancel" okText="Confirm">
@@ -22,10 +26,18 @@
             <ion-select-option value="wa">Waiter</ion-select-option>        
           </ion-select>
    </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
     <ion-item>
           <ion-label position="floating">Previous Experience(in years):</ion-label>
           <ion-input type = 'number' ></ion-input>
    </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
    <ion-item>
         <ion-label>Gender:</ion-label>
           <ion-select interface="popover">
@@ -33,11 +45,19 @@
             <ion-select-option value="Fe">Female</ion-select-option>
             <ion-select-option value="Ot">Others</ion-select-option>
           </ion-select>
-   </ion-item>        
+   </ion-item> 
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">       
    <ion-item>
         <ion-label position="floating">Age:</ion-label>
         <ion-input type = 'number' ></ion-input>
    </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
    <ion-item>
           <ion-label>Education:</ion-label>
           <ion-select interface="popover">
@@ -50,14 +70,23 @@
             <ion-select-option value="PD">Ph.D</ion-select-option>
           </ion-select>
    </ion-item> 
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
    <ion-item>
           <ion-label position="floating">Additional Skills:</ion-label>
           <ion-input type = 'text' ></ion-input>
    </ion-item>
-  
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
    <ion-button class="ion-margin-vertical" size='default' color="secondary" expand="full">
     Search 
   </ion-button>
-
-
-</ion-content>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </form>  
+  </ion-content>

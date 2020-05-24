@@ -36,4 +36,6 @@ export class RegisterAsEmployeePage implements OnInit {
       eyee_salary_expected: form.value.salaryExpected,
       }
    }
- }
+  }
+
+  
