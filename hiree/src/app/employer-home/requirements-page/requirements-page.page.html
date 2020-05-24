@@ -16,14 +16,14 @@
       <ion-col size-md="6" offset-md="3">
    <ion-item>
           <ion-label>Position to be offered:</ion-label>
-          <ion-select multiple="true" cancelText="Cancel" okText="Confirm">
-            <ion-select-option value="Ba">Bartender</ion-select-option>
-            <ion-select-option value="Che">Chef</ion-select-option>
-            <ion-select-option value="de">Delivery Person</ion-select-option>
-            <ion-select-option value="ja">Janitor</ion-select-option>
-            <ion-select-option value="ma">Manager</ion-select-option>            
-            <ion-select-option value="re">Receptionist</ion-select-option>
-            <ion-select-option value="wa">Waiter</ion-select-option>        
+          <ion-select multiple="true" cancelText="Cancel" okText="Confirm" ngModel name ="post">
+            <ion-select-option value="Bartender">Bartender</ion-select-option>
+            <ion-select-option value="Chef">Chef</ion-select-option>
+            <ion-select-option value="deliver">Delivery Person</ion-select-option>
+            <ion-select-option value="janitor">Janitor</ion-select-option>
+            <ion-select-option value="manager">Manager</ion-select-option>            
+            <ion-select-option value="receptionist">Receptionist</ion-select-option>
+            <ion-select-option value="waiter">Waiter</ion-select-option>        
           </ion-select>
    </ion-item>
       </ion-col>
@@ -32,7 +32,7 @@
       <ion-col size-md="6" offset-md="3">
     <ion-item>
           <ion-label position="floating">Previous Experience(in years):</ion-label>
-          <ion-input type = 'number' ></ion-input>
+          <ion-input type = 'number'ngModel name ="previousExperience" ></ion-input>
    </ion-item>
       </ion-col>
     </ion-row>
@@ -40,10 +40,10 @@
       <ion-col size-md="6" offset-md="3">
    <ion-item>
         <ion-label>Gender:</ion-label>
-          <ion-select interface="popover">
-            <ion-select-option value="Me">Male</ion-select-option>
-            <ion-select-option value="Fe">Female</ion-select-option>
-            <ion-select-option value="Ot">Others</ion-select-option>
+          <ion-select interface="popover"ngModel name ="gender">
+            <ion-select-option value="Male">Male</ion-select-option>
+            <ion-select-option value="Female">Female</ion-select-option>
+            <ion-select-option value="Others">Others</ion-select-option>
           </ion-select>
    </ion-item> 
       </ion-col>
@@ -52,7 +52,7 @@
       <ion-col size-md="6" offset-md="3">       
    <ion-item>
         <ion-label position="floating">Age:</ion-label>
-        <ion-input type = 'number' ></ion-input>
+        <ion-input type = 'number' ngModel name ="age"></ion-input>
    </ion-item>
       </ion-col>
     </ion-row>
@@ -60,14 +60,14 @@
       <ion-col size-md="6" offset-md="3">
    <ion-item>
           <ion-label>Education:</ion-label>
-          <ion-select interface="popover">
-            <ion-select-option value="Non">None</ion-select-option>
-            <ion-select-option value="tn">Tenth</ion-select-option>
-            <ion-select-option value="intt">Intermediate</ion-select-option>
-            <ion-select-option value="Dp">Diploma</ion-select-option>
-            <ion-select-option value="Dg">Degree</ion-select-option>
-            <ion-select-option value="Ms">Masters</ion-select-option>
-            <ion-select-option value="PD">Ph.D</ion-select-option>
+          <ion-select interface="popover" ngModel name ="education">
+            <ion-select-option value="None">None</ion-select-option>
+            <ion-select-option value="tenth">Tenth</ion-select-option>
+            <ion-select-option value="intermediate">Intermediate</ion-select-option>
+            <ion-select-option value="Diploma">Diploma</ion-select-option>
+            <ion-select-option value="Degree">Degree</ion-select-option>
+            <ion-select-option value="Masters">Masters</ion-select-option>
+            <ion-select-option value="PhD">Ph.D</ion-select-option>
           </ion-select>
    </ion-item> 
       </ion-col>
@@ -76,7 +76,7 @@
       <ion-col size-md="6" offset-md="3">
    <ion-item>
           <ion-label position="floating">Additional Skills:</ion-label>
-          <ion-input type = 'text' ></ion-input>
+          <ion-input type = 'text'ngModel name ="additionalSkills" ></ion-input>
    </ion-item>
       </ion-col>
     </ion-row>

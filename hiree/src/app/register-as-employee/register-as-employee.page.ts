@@ -22,6 +22,8 @@ export class RegisterAsEmployeePage implements OnInit {
     var postdata = {
       user_id: 1,
       eyee_name: 2,
+      eyee_fname: form.value.fName,
+      eyee_sname: form.value.sName,
       eyee_aadhar_no: form.value.aadhar,
       eyee_age: form.value.age,
       eyee_gender: form.value.gender,
