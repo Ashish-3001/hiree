@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
+import { PostService } from '../servvices/post.service';
 
 @Component({
   selector: 'app-register-as-employer',
@@ -9,7 +10,7 @@ import { NgForm } from '@angular/forms';
 })
 export class RegisterAsEmployerPage implements OnInit {
 
-  constructor(public menuCtrl: MenuController) { }
+  constructor(public menuCtrl: MenuController, private postdata: PostService) { }
 
   ngOnInit() {
   }
@@ -19,8 +20,8 @@ export class RegisterAsEmployerPage implements OnInit {
   }
   onSubmit(form: NgForm) {
     var postdata = {
-      user_id: 1,
-      eyer_gst: form.value.gst,
+      user_id: "",
+      eyer_gst_no: form.value.gst,
       eyer_hotel_name: form.value.hotel_name,
       eyer_address_1: form.value.address_1,
       eyer_address_2: form.value.address_2,
@@ -29,12 +30,10 @@ export class RegisterAsEmployerPage implements OnInit {
       eyer_website: form.value.website,
       eyer_type: form.value.type,
       eyer_category: form.value.category,
-      eyer_cuisines: form.value.Cuisines,
-      eyer_seat: form.value.seat,
-
-
+      eyer_cuisines: form.value.cuisines.toString(),
+      eyer_no_seats: form.value.seats,
     }
-console.log(form.value.cuisines);
 
+    this.postdata.post_employer_details(postdata);
   }
 }

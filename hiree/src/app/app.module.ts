@@ -10,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage'
+import { FolderPage } from './employer-home/employer-home.page';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +25,7 @@ import { IonicStorageModule } from '@ionic/storage'
   providers: [
     StatusBar,
     SplashScreen,
+    FolderPage,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
