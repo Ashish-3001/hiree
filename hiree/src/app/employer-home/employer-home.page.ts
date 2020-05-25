@@ -27,10 +27,11 @@ export class FolderPage implements OnInit {
 
   ngOnInit() {
     this.get.get_employee();
+    
   }
 
   ionViewWillEnter() {
     this.menuCtrl.enable(true);
-    this.results = this.get.results;
+    this.results = this.get.results_eyee_details;
   }
 }

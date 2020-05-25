@@ -11,7 +11,9 @@ export class GetService {
   logged_ey_id = new BehaviorSubject(0);
 
 
-  results: object = [{ }];
+  results_eyee_details: object = [{ }];
+  results_eyer_details: object = [{ }];
+  results_job_post: object = [{ }];
   dat: any;
   i:number = 0;
 
@@ -33,12 +35,15 @@ export class GetService {
               this.http.get('http://127.0.0.1:8000/EmployerDetails/').subscribe( (data) =>{
                 this.logged_ey_id.next(data[this.i].id);
                 console.log(data[this.i].id);
+                this.get_employee();
               });
             }
             else {
               this.http.get('http://127.0.0.1:8000/EmployeeDetails/').subscribe( (data) =>{
                 this.logged_ey_id.next(data[this.i].id);
                 console.log(data[this.i].id);
+                this.get_employer();
+                this.get_job_post();
               });
             }
             break;
@@ -53,7 +58,7 @@ export class GetService {
     let promise= new Promise((resolve, reject ) =>{
       this.http.get('http://127.0.0.1:8000/EmployeeDetails/').toPromise().then( (data) =>{
       console.log(data);
-      this.results = data;
+      this.results_eyee_details = data;
       resolve();
     },
     msg => {
@@ -61,6 +66,36 @@ export class GetService {
     }
     );
     });
-    return this.results;
+    return this.results_eyee_details;
+  }
+
+  get_employer() {
+    let promise= new Promise((resolve, reject ) =>{
+      this.http.get('http://127.0.0.1:8000/EmployerDetails/').toPromise().then( (data) =>{
+      console.log(data);
+      this.results_eyer_details = data;
+      resolve();
+    },
+    msg => {
+      reject();
+    }
+    );
+    });
+    return this.results_eyer_details;
+  }
+
+  get_job_post() {
+    let promise= new Promise((resolve, reject ) =>{
+      this.http.get('http://127.0.0.1:8000/JobPost/').toPromise().then( (data) =>{
+      console.log(data);
+      this.results_job_post = data;
+      resolve();
+    },
+    msg => {
+      reject();
+    }
+    );
+    });
+    return this.results_job_post;
   }
 }

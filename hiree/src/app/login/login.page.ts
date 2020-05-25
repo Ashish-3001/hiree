@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController, NavController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
-import { AuthenticationService } from '../servvices/authentication.service';
 import { GetService } from '../servvices/get.service';
 
 
@@ -23,11 +22,11 @@ export class LoginPage implements OnInit {
      public navCtrl: NavController,
      private login: GetService,
      ) { 
-    
+ 
   }
 
   ngOnInit() {
-    
+   
   }
 
   ionViewWillEnter() {
