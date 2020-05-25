@@ -8,7 +8,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'employer/:id',
+    path: 'employer-profile/:id/employer-home',
     loadChildren: () => import('./employer-home/employer-home.module').then( m => m.EmployerHomePageModule)
   },
   {
@@ -36,7 +36,7 @@ const routes: Routes = [
     loadChildren: () => import('./register-as-employee/reg-employee-basic/reg-employee-basic.module').then( m => m.RegEmployeeBasicPageModule)
   },
   {
-    path: 'requirements-page',
+    path: 'employer-profile/:id/requirements-page',
     loadChildren: () => import('./employer-home/requirements-page/requirements-page.module').then( m => m.RequirementsPagePageModule)
   },
   {
@@ -47,6 +47,12 @@ const routes: Routes = [
     path: 'employee-apply',
     loadChildren: () => import('./employee-home/employee-apply/employee-apply.module').then( m => m.EmployeeApplyPageModule)
   },
+  {
+    path: 'employer-profile/:id',
+    loadChildren: () => import('./employer-home/employer-profile/employer-profile.module').then( m => m.EmployerProfilePageModule)
+  }
+
+
 ];
 
 @NgModule({

@@ -1,11 +1,16 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title><ion-chip>
-      <ion-avatar>
-        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjYzVkYmZmIiBkPSJNMCAwaDUxMnY1MTJIMHoiLz48cGF0aCBkPSJNMjU2IDMwNGM2MS42IDAgMTEyLTUwLjQgMTEyLTExMlMzMTcuNiA4MCAyNTYgODBzLTExMiA1MC40LTExMiAxMTIgNTAuNCAxMTIgMTEyIDExMnptMCA0MGMtNzQuMiAwLTIyNCAzNy44LTIyNCAxMTJ2NTZoNDQ4di01NmMwLTc0LjItMTQ5LjgtMTEyLTIyNC0xMTJ6IiBmaWxsPSIjODJhZWZmIi8+PC9zdmc+" />
-      </ion-avatar>
-      <ion-label>Hotel_Name</ion-label>
-    </ion-chip></ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-chip>
+        <ion-avatar>
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjYzVkYmZmIiBkPSJNMCAwaDUxMnY1MTJIMHoiLz48cGF0aCBkPSJNMjU2IDMwNGM2MS42IDAgMTEyLTUwLjQgMTEyLTExMlMzMTcuNiA4MCAyNTYgODBzLTExMiA1MC40LTExMiAxMTIgNTAuNCAxMTIgMTEyIDExMnptMCA0MGMtNzQuMiAwLTIyNCAzNy44LTIyNCAxMTJ2NTZoNDQ4di01NmMwLTc0LjItMTQ5LjgtMTEyLTIyNC0xMTJ6IiBmaWxsPSIjODJhZWZmIi8+PC9zdmc+" />
+        </ion-avatar>
+        <ion-label>Hotel_Name</ion-label>
+      </ion-chip>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,25 +19,25 @@
   <ion-grid>
     <ion-row>
       <ion-col size-md="6" offset-md="3">
-        <ion-item>
-            <ion-label>Position to be offered:</ion-label>
-            <ion-select multiple="true" cancelText="Cancel" okText="Confirm">
-             <ion-select-option value="Ba">Bartender</ion-select-option>
-              <ion-select-option value="Che">Chef</ion-select-option>
-              <ion-select-option value="de">Delivery Person</ion-select-option>
-              <ion-select-option value="ja">Janitor</ion-select-option>
-              <ion-select-option value="ma">Manager</ion-select-option>            
-              <ion-select-option value="re">Receptionist</ion-select-option>
-              <ion-select-option value="wa">Waiter</ion-select-option>        
-            </ion-select>
-        </ion-item>
+   <ion-item>
+          <ion-label>Position to be offered:</ion-label>
+          <ion-select multiple="true" cancelText="Cancel" okText="Confirm" ngModel name ="post">
+            <ion-select-option value="Bartender">Bartender</ion-select-option>
+            <ion-select-option value="Chef">Chef</ion-select-option>
+            <ion-select-option value="deliver">Delivery Person</ion-select-option>
+            <ion-select-option value="janitor">Janitor</ion-select-option>
+            <ion-select-option value="manager">Manager</ion-select-option>            
+            <ion-select-option value="receptionist">Receptionist</ion-select-option>
+            <ion-select-option value="waiter">Waiter</ion-select-option>        
+          </ion-select>
+   </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size-md="6" offset-md="3">
     <ion-item>
           <ion-label position="floating">Previous Experience(in years):</ion-label>
-          <ion-input type = 'number' ></ion-input>
+          <ion-input type = 'number'ngModel name ="previousExperience" ></ion-input>
    </ion-item>
       </ion-col>
     </ion-row>
@@ -40,10 +45,10 @@
       <ion-col size-md="6" offset-md="3">
    <ion-item>
         <ion-label>Gender:</ion-label>
-          <ion-select interface="popover">
-            <ion-select-option value="Me">Male</ion-select-option>
-            <ion-select-option value="Fe">Female</ion-select-option>
-            <ion-select-option value="Ot">Others</ion-select-option>
+          <ion-select interface="popover"ngModel name ="gender">
+            <ion-select-option value="Male">Male</ion-select-option>
+            <ion-select-option value="Female">Female</ion-select-option>
+            <ion-select-option value="Others">Others</ion-select-option>
           </ion-select>
    </ion-item> 
       </ion-col>
@@ -52,7 +57,7 @@
       <ion-col size-md="6" offset-md="3">       
    <ion-item>
         <ion-label position="floating">Age:</ion-label>
-        <ion-input type = 'number' ></ion-input>
+        <ion-input type = 'number' ngModel name ="age"></ion-input>
    </ion-item>
       </ion-col>
     </ion-row>
@@ -60,14 +65,14 @@
       <ion-col size-md="6" offset-md="3">
    <ion-item>
           <ion-label>Education:</ion-label>
-          <ion-select interface="popover">
-            <ion-select-option value="Non">None</ion-select-option>
-            <ion-select-option value="tn">Tenth</ion-select-option>
-            <ion-select-option value="intt">Intermediate</ion-select-option>
-            <ion-select-option value="Dp">Diploma</ion-select-option>
-            <ion-select-option value="Dg">Degree</ion-select-option>
-            <ion-select-option value="Ms">Masters</ion-select-option>
-            <ion-select-option value="PD">Ph.D</ion-select-option>
+          <ion-select interface="popover" ngModel name ="education">
+            <ion-select-option value="None">None</ion-select-option>
+            <ion-select-option value="tenth">Tenth</ion-select-option>
+            <ion-select-option value="intermediate">Intermediate</ion-select-option>
+            <ion-select-option value="Diploma">Diploma</ion-select-option>
+            <ion-select-option value="Degree">Degree</ion-select-option>
+            <ion-select-option value="Masters">Masters</ion-select-option>
+            <ion-select-option value="PhD">Ph.D</ion-select-option>
           </ion-select>
    </ion-item> 
       </ion-col>
@@ -76,13 +81,13 @@
       <ion-col size-md="6" offset-md="3">
    <ion-item>
           <ion-label position="floating">Additional Skills:</ion-label>
-          <ion-input type = 'text' ></ion-input>
+          <ion-input type = 'text'ngModel name ="additionalSkills" ></ion-input>
    </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size-md="6" offset-md="3">
-   <ion-button class="ion-margin-vertical" size='default' color="secondary" expand="full">
+   <ion-button class="ion-margin-vertical" type='submit' size='default' color="secondary" expand="full" [routerLink] = "['../employer-home']">
     Search 
   </ion-button>
       </ion-col>
