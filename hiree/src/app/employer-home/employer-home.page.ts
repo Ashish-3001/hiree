@@ -1,9 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MenuController } from '@ionic/angular';
-import { HttpClient } from '@angular/common/http';
-import { resolve } from 'url';
-import { promise } from 'protractor';
+import { GetService } from '../servvices/get.service';
 
 
 @Injectable()
@@ -21,27 +19,19 @@ export class FolderPage implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, 
     public menuCtrl: MenuController,
-    private http:HttpClient) 
+    private get: GetService) 
   { 
-    let promise= new Promise((resolve, reject ) =>{
-      this.http.get('http://127.0.0.1:8000/EmployeeDetails/').toPromise().then( (data) =>{
-      console.log(data);
-      this.results = data;
-      resolve();
-    },
-    msg => {
-      reject();
-    }
-    );
-    });
+    
+    
   }
 
   ngOnInit() {
-    this.folder = this.activatedRoute.snapshot.paramMap.get('id');
-
+    this.get.get_employee();
+    
   }
 
   ionViewWillEnter() {
     this.menuCtrl.enable(true);
+    this.results = this.get.results_eyee_details;
   }
 }
