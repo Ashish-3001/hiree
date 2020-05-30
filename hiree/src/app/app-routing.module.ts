@@ -44,6 +44,10 @@ const routes: Routes = [
         loadChildren: () => import('./employee-home/employee-home.module').then( m => m.EmployeeHomePageModule)
       },
       {
+        path: '/profile',
+        loadChildren: () => import('./employee-home/employee-profile/employee-profile.module').then( m => m.EmployeeProfilePageModule)
+      },
+      {
         path: ':eyee_id',
         loadChildren: () => import('./employee-home/details/details.module').then( m => m.DetailsPageModule)
       },
@@ -69,9 +73,8 @@ const routes: Routes = [
   {
     path: 'employer-profile',
     loadChildren: () => import('./employer-home/employer-profile/employer-profile.module').then( m => m.EmployerProfilePageModule)
-  }
-
-
+  },
+  
 ];
 
 @NgModule({

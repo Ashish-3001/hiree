@@ -16,48 +16,31 @@ export class AppComponent implements OnInit {
   public appPages = [
     {
       title: 'Profile',
-      url: '/folder/Inbox',
-      icon: 'mail'
-    },
-    {
-      title: 'Outbox',
-      url: '/folder/Outbox',
-      icon: 'paper-plane'
+      url: '/employee-home/Profile',
+      icon: 'person'
     },
     {
       title: 'Favorites',
-      url: '/folder/Favorites',
+      url: '/employee-home/Favorites',
       icon: 'heart'
     },
     {
-      title: 'Archived',
-      url: '/folder/Archived',
-      icon: 'archive'
+      title: 'Application Status',
+      url: '/employee-home/Application Status',
+      icon: 'reader'
     },
     {
-      title: 'Trash',
-      url: '/folder/Trash',
-      icon: 'trash'
+      title: 'Feedback',
+      url: '/employee-home/Feedback',
+      icon: 'pencil'
     },
     {
-      title: 'Spam',
-      url: '/folder/Spam',
+      title: 'Help',
+      url: '/employee-home/Help',
       icon: 'warning'
     }
   ];
 
-  postdata = {
-    user_phone_no: 1234567890,
-    user_email: "abc@xyz.com",
-    user_password: "ashish@123",
-  }
-
-  config = {
-    headers: {
-      "Content-Type": "application/json",
-      'Access-Control-Allow-Origin': '*' ,
-      }
-    }
 
   constructor(
     private platform: Platform,
