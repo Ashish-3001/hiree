@@ -16,17 +16,17 @@ export class AppComponent implements OnInit {
   public appPages = [
     {
       title: 'Profile',
-      url: '/employee-home/Profile',
+      url: '/employee-home/menu/profile',
       icon: 'person'
     },
     {
       title: 'Favorites',
-      url: '/employee-home/Favorites',
+      url: '/employee-home/menu/favourites',
       icon: 'heart'
     },
     {
       title: 'Application Status',
-      url: '/employee-home/Application Status',
+      url: '/employee-home/menu/apllication-status',
       icon: 'reader'
     },
     {

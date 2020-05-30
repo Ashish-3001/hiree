@@ -44,12 +44,20 @@ const routes: Routes = [
         loadChildren: () => import('./employee-home/employee-home.module').then( m => m.EmployeeHomePageModule)
       },
       {
-        path: '/profile',
-        loadChildren: () => import('./employee-home/employee-profile/employee-profile.module').then( m => m.EmployeeProfilePageModule)
-      },
-      {
         path: ':eyee_id',
         loadChildren: () => import('./employee-home/details/details.module').then( m => m.DetailsPageModule)
+      },
+      {
+        path: 'menu/profile',
+        loadChildren: () => import('./employee-home/menu/employee-profile/employee-profile.module').then( m => m.EmployeeProfilePageModule)
+      },
+      {
+        path: 'menu/favourites',
+        loadChildren: () => import('./employee-home/menu/favourites/favourites.module').then( m => m.FavouritesPageModule)
+      },
+      {
+        path: 'menu/apllication-status',
+        loadChildren: () => import('./employee-home/menu/application-status/application-status.module').then( m => m.ApplicationStatusPageModule)
       },
       {
         path: ':eyee_id/employee-apply',
