@@ -42,6 +42,9 @@ export class RegisterAsEmployeePage implements OnInit {
       }
     this.postdata.post_employee_details(postdata);
    }
+   onImagePicked(imageData: string){
+     
+   }
   }
 
   
