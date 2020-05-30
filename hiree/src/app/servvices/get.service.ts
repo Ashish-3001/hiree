@@ -14,6 +14,7 @@ export class GetService {
   results_eyee_details: object = [{ }];
   results_eyer_details: object = [{ }];
   results_job_post: object = [{ }];
+  results_job_post_sepcific: object = { };
   dat: any;
   i:number = 0;
 
@@ -33,15 +34,15 @@ export class GetService {
             console.log(this.dat[this.i].id);
             if(this.dat[this.i].user_type == 'employer') {
               this.http.get('http://127.0.0.1:8000/EmployerDetails/').subscribe( (data) =>{
-                this.logged_ey_id.next(data[this.i].id);
-                console.log(data[this.i].id);
+                this.logged_ey_id.next(data[this.i]);
+                console.log(data[this.i]);
                 this.get_employee();
               });
             }
             else {
               this.http.get('http://127.0.0.1:8000/EmployeeDetails/').subscribe( (data) =>{
                 this.logged_ey_id.next(data[this.i].id);
-                console.log(data[this.i].id);
+                console.log(data[this.i]);
                 this.get_employer();
                 this.get_job_post();
               });
@@ -98,4 +99,20 @@ export class GetService {
     });
     return this.results_job_post;
   }
+
+  /* get_specific_job(id: any) { 
+    var i: number = 0;
+     this.http.get('http://127.0.0.1:8000/JobPost/').subscribe((data)=>{
+      for(i; i >= 0; i++){
+        if(data[i].id){
+          console.log(data);
+          this.results_job_post_sepcific = data[i];
+          console.log(this.results_job_post_sepcific);
+          break;
+        }
+      }
+      console.log(this.results_job_post_sepcific);
+      return data[i];
+    });
+  } */
 }

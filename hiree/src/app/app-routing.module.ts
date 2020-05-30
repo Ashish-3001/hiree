@@ -8,8 +8,21 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'employer-profile/:id/employer-home',
-    loadChildren: () => import('./employer-home/employer-home.module').then( m => m.EmployerHomePageModule)
+    path: 'employer-profile/employer-home',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./employer-home/employer-home.module').then( m => m.EmployerHomePageModule)
+      },
+      {
+        path: ':eyer_id',
+        loadChildren: () => import('./employer-home/details/details.module').then( m => m.DetailsPageModule)
+      },
+      {
+        path: ':eyer_id/job-offer',
+        loadChildren: () => import('./employer-home/job-offer/job-offer.module').then( m => m.JobOfferPageModule)
+      }
+    ]
   },
   {
     path: 'login',
@@ -25,7 +38,20 @@ const routes: Routes = [
   },
   {
     path: 'employee-home',
-    loadChildren: () => import('./employee-home/employee-home.module').then( m => m.EmployeeHomePageModule)
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./employee-home/employee-home.module').then( m => m.EmployeeHomePageModule)
+      },
+      {
+        path: ':eyee_id',
+        loadChildren: () => import('./employee-home/details/details.module').then( m => m.DetailsPageModule)
+      },
+      {
+        path: ':eyee_id/employee-apply',
+        loadChildren: () => import('./employee-home/employee-apply/employee-apply.module').then( m => m.EmployeeApplyPageModule)
+      }
+    ]
   },
   {
     path: 'reg-employer-basic',
@@ -36,19 +62,12 @@ const routes: Routes = [
     loadChildren: () => import('./register-as-employee/reg-employee-basic/reg-employee-basic.module').then( m => m.RegEmployeeBasicPageModule)
   },
   {
-    path: 'employer-profile/:id/requirements-page',
+    path: 'employer-profile/requirements-page',
     loadChildren: () => import('./employer-home/requirements-page/requirements-page.module').then( m => m.RequirementsPagePageModule)
   },
+
   {
-    path: 'job-offer',
-    loadChildren: () => import('./employer-home/job-offer/job-offer.module').then( m => m.JobOfferPageModule)
-  },
-  {
-    path: 'employee-apply',
-    loadChildren: () => import('./employee-home/employee-apply/employee-apply.module').then( m => m.EmployeeApplyPageModule)
-  },
-  {
-    path: 'employer-profile/:id',
+    path: 'employer-profile',
     loadChildren: () => import('./employer-home/employer-profile/employer-profile.module').then( m => m.EmployerProfilePageModule)
   }
 

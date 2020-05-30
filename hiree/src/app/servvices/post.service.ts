@@ -43,7 +43,9 @@ export class PostService {
   }
 
   post_job_post(postdata: any) {
-    postdata.eyer_id = this.log_details.logged_ey_id.value;
+    var data:any = this.log_details.logged_ey_id.value;
+    console.log(data.id);
+    postdata.eyer_id = data.id;
     this.http.post('http://127.0.0.1:8000/JobPost/', postdata).subscribe( (data) =>{
       console.log("success");
       this.data = data;

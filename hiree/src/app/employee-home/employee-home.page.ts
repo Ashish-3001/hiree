@@ -22,13 +22,16 @@ export class EmployeeHomePage implements OnInit {
   }
 
   ngOnInit() {
-    this.get.get_employee();
+    this.get.get_employer();
     this.get.get_job_post();
   }
 
   ionViewWillEnter() {
     this.menuCtrl.enable(true);
     this.results_eyer = this.get.results_eyer_details;
+    console.log(this.results_eyer);
     this.results_job = this.get.results_job_post;
+    console.log(this.results_job);
+    
   }
 }

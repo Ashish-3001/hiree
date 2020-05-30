@@ -27,7 +27,7 @@ export class AuthenticationService {
       this.router.navigate(['/employee-home']);
     }
     else if(type == 'employer') {
-      this.router.navigate(['employer-profile/2']);
+      this.router.navigate(['employer-profile']);
     }
     return this.storage.set(TOKEN_KEY, type ).then(res => {
       this.authenticationState.next(true);
@@ -53,7 +53,7 @@ export class AuthenticationService {
       }
       else if (res == 'employer') {
         this.authenticationState.next(true);
-        this.router.navigate(['employer-profile/2']);
+        this.router.navigate(['employer-profile']);
       }
     });
   }
