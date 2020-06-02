@@ -6,7 +6,7 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./map-modal.component.scss'],
 })
 export class MapModalComponent implements OnInit, AfterViewInit{ 
- @ViewChild('map')  mapElementRef: ElementRef;
+ @ViewChild('map',{static: false})  mapElementRef: ElementRef;
   constructor(
     private modalCtrl: ModalController,
     private renderer: Renderer2
@@ -63,6 +63,6 @@ private getGoogleMaps(): Promise<any> {
        }
      }
  
-     }
+  )}
 }
 
