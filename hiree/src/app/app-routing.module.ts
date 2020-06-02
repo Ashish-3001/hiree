@@ -89,7 +89,6 @@ const routes: Routes = [
     path: 'employer-profile/requirements-page',
     loadChildren: () => import('./employer-home/requirements-page/requirements-page.module').then( m => m.RequirementsPagePageModule)
   },
-
   {
     path: 'employer-profile',
     loadChildren: () => import('./employer-home/employer-profile/employer-profile.module').then( m => m.EmployerProfilePageModule)

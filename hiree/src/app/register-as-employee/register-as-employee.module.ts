@@ -13,7 +13,7 @@ import { RegisterAsEmployeePage } from './register-as-employee.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    RegisterAsEmployeePageRoutingModule
+    RegisterAsEmployeePageRoutingModule,
   ],
   declarations: [RegisterAsEmployeePage]
 })
