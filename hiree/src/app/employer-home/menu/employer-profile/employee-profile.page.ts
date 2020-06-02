@@ -7,15 +7,15 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './employee-profile.page.html',
   styleUrls: ['./employee-profile.page.scss'],
 })
-export class EmployeeProfilePage implements OnInit {
+export class EmployerProfilePage implements OnInit {
 
-  employee_details: any;
+  employer_details: any;
 
   constructor(private http:HttpClient, private get: GetService) { }
 
   ngOnInit() {
-    this.employee_details = this.get.logged_ey_id.value;
-    console.log(this.employee_details);    
+    this.employer_details = this.get.logged_ey_id.value;
+    console.log(this.employer_details);    
   }
 
 }

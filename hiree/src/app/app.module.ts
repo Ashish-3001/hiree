@@ -25,7 +25,7 @@ import { FolderPage } from './employer-home/employer-home.page';
   providers: [
     StatusBar,
     SplashScreen,
-    FolderPage,
+    AppComponent,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

@@ -19,6 +19,18 @@ const routes: Routes = [
         loadChildren: () => import('./employer-home/details/details.module').then( m => m.DetailsPageModule)
       },
       {
+        path: 'menu/profile',
+        loadChildren: () => import('./employer-home/menu/employer-profile/employee-profile.module').then( m => m.EmployerProfilePageModule)
+      },
+      {
+        path: 'menu/favourites',
+        loadChildren: () => import('./employer-home/menu/favourites/favourites.module').then( m => m.FavouritesPageModule)
+      },
+      {
+        path: 'menu/apllication-status',
+        loadChildren: () => import('./employer-home/menu/applications-recived/application-status.module').then( m => m.ApplicationsRecPageModule)
+      },
+      {
         path: ':eyer_id/job-offer',
         loadChildren: () => import('./employer-home/job-offer/job-offer.module').then( m => m.JobOfferPageModule)
       }

@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Platform } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
 
 const TOKEN_KEY = 'auth-token';
 
@@ -15,7 +16,7 @@ export class AuthenticationService {
   constructor(
     private storage: Storage,
     private platform: Platform,
-    private router: Router,)
+    private router: Router)
   {
     this.platform.ready().then(() => {
       this.check();
@@ -29,9 +30,10 @@ export class AuthenticationService {
     else if(type == 'employer') {
       this.router.navigate(['employer-profile']);
     }
-    return this.storage.set(TOKEN_KEY, type ).then(res => {
+    this.storage.set(TOKEN_KEY, type ).then(res => {
       this.authenticationState.next(true);
     });
+    this.menu();
   }
 
   logout() {
@@ -53,8 +55,20 @@ export class AuthenticationService {
       }
       else if (res == 'employer') {
         this.authenticationState.next(true);
-        this.router.navigate(['employer-profile']);
+        this.router.navigate(['employer-profile/employer-home']);
       }
+    });
+  }
+
+  menu() {
+    return this.storage.get(TOKEN_KEY).then(res => {
+      if(res == 'employee') {
+        return 'employee';
+      }
+      else if (res == 'employer') {
+        return 'employer';
+      }
+      
     });
   }
 

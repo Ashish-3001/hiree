@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MenuController, NavController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { GetService } from '../servvices/get.service';
+import { AuthenticationService } from '../servvices/authentication.service';
+import { AppComponent } from '../app.component';
 
 
 @Component({
@@ -21,6 +23,8 @@ export class LoginPage implements OnInit {
      private http: HttpClient, 
      public navCtrl: NavController,
      private login: GetService,
+     private authService: AuthenticationService,
+     private menu: AppComponent,
      ) { 
  
   }

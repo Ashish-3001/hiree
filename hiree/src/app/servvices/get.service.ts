@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthenticationService } from './authentication.service';
 import { BehaviorSubject } from 'rxjs';
+import { AppComponent } from '../app.component';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class GetService {
   i:number = 0;
 
 
-  constructor( private http:HttpClient, private authService: AuthenticationService) 
+  constructor( private http:HttpClient, private authService: AuthenticationService, private menu: AppComponent) 
   {
   }
 
@@ -31,20 +32,31 @@ export class GetService {
           if(login_pas == this.dat[this.i].user_password) {
             this.authService.login(this.dat[this.i].user_type);
             this.logged_user_id.next(this.dat[this.i].id);
+            console.log(this.menu.state);
             console.log(this.dat[this.i].id);
             if(this.dat[this.i].user_type == 'employer') {
               this.http.get('http://127.0.0.1:8000/EmployerDetails/').subscribe( (data) =>{
-                this.logged_ey_id.next(data[this.i]);
-                console.log(data[this.i]);
-                this.get_employee();
+                for(var j=0; j >=0;j++) {
+                  if(this.logged_user_id.value == data[j].user_id) {   
+                    this.logged_ey_id.next(data[j]);
+                    console.log(data[j]);
+                    this.get_employee();
+                    break;
+                  }
+                }
               });
             }
             else {
               this.http.get('http://127.0.0.1:8000/EmployeeDetails/').subscribe( (data) =>{
-                this.logged_ey_id.next(data[this.i].id);
-                console.log(data[this.i]);
-                this.get_employer();
-                this.get_job_post();
+                for(var j=0; j >=0;j++) {
+                  if(this.logged_user_id.value == data[j].user_id) {
+                    this.logged_ey_id.next(data[j]);
+                    console.log(data[j]);
+                    this.get_employer();
+                    this.get_job_post();
+                    break;
+                  }
+                }
               });
             }
             break;
