@@ -5,11 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthenticationService } from './servvices/authentication.service';
 import { Router } from '@angular/router';
-<<<<<<< HEAD
-import { __values } from 'tslib';
-=======
 import { Plugins, Capacitor } from '@capacitor/core';
->>>>>>> 52d7cfb5a4a6c57a2991dfda89712278cc6185b2
 
 @Component({
   selector: 'app-root',
@@ -100,12 +96,9 @@ export class AppComponent implements OnInit {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-<<<<<<< HEAD
-=======
       
 
       
->>>>>>> 52d7cfb5a4a6c57a2991dfda89712278cc6185b2
     });
   }
 
