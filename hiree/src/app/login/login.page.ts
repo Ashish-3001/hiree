@@ -40,4 +40,9 @@ export class LoginPage implements OnInit {
   LogIn_var() {
     this.login.login(this.login_id,this.login_pas);
   }
+
+  ionViewWillLeave() {
+    this.menu.ngOnInit();
+    console.log(this.menu.state);
+  }
 }
