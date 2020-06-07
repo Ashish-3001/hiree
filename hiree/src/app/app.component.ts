@@ -97,6 +97,11 @@ export class AppComponent implements OnInit {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       
+<<<<<<< HEAD
+=======
+
+      
+>>>>>>> 218b702cdf515e0d7b7f63dc625697596dd21311
     });
   }
 

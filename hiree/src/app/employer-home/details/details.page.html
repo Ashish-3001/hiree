@@ -3,10 +3,57 @@
     <ion-title>hey</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <ion-button  [routerLink] = "['../job-offer']">Offer job</ion-button>
-  <ion-item >
-    {{ details.eyee_choice }}
-  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-card>
+          <ion-card-header color="light">
+            <ion-card-title>
+              {{ details.job_post }}
+            </ion-card-title>
+            <ion-card-subtitle >
+             {{ details.eyee_name }}<br>
+             Location : {{ details.eyee_city }}
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content >
+            <ion-item>
+              Previous Experience : {{ details.eyee_pre_experience }}
+             </ion-item>
+            <ion-item >
+              Expected Salary : {{ details.salary_expected }}
+             </ion-item>
+             <ion-item >
+              Minimum Education : {{ details.eyee_education }}
+             </ion-item>
+             <ion-item >
+              Previous place of Work : {{ details.place_pre_experience }}
+             </ion-item>
+             <ion-item >
+              Job Preference : {{ details.choice }}
+             </ion-item>
+             
+             <ion-item >
+              Time of Work : {{ details.eyee_time }}
+             </ion-item>
+             <ion-item >
+              Age : {{ details.eyee_age }}
+             </ion-item>
+             <ion-item >
+              Gender : {{ details.eyee_gender }}
+             </ion-item>
+             <ion-item >
+              Additional Skills : {{ details.eyee_add_skills}}
+             </ion-item>
+
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+  
 </ion-content>
+<ion-footer>
+  <ion-button  [routerLink] = "['../job-offer']"  color="success" expand="block">Offer job</ion-button>
+</ion-footer>

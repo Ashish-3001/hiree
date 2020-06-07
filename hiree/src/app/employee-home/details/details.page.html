@@ -1,13 +1,73 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>hello</ion-title>
+    <ion-buttons slot="end" class="ion-padding">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title><ion-chip>
+      <ion-avatar>
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjYzVkYmZmIiBkPSJNMCAwaDUxMnY1MTJIMHoiLz48cGF0aCBkPSJNMjU2IDMwNGM2MS42IDAgMTEyLTUwLjQgMTEyLTExMlMzMTcuNiA4MCAyNTYgODBzLTExMiA1MC40LTExMiAxMTIgNTAuNCAxMTIgMTEyIDExMnptMCA0MGMtNzQuMiAwLTIyNCAzNy44LTIyNCAxMTJ2NTZoNDQ4di01NmMwLTc0LjItMTQ5LjgtMTEyLTIyNC0xMTJ6IiBmaWxsPSIjODJhZWZmIi8+PC9zdmc+" />
+      </ion-avatar>
+      <ion-label>Hotel_Name</ion-label>
+    </ion-chip></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button  [routerLink] = "['../employee-apply']">Apply for  job</ion-button>
-  <ion-item >
-    {{ details.job_post }}
-    {{ details.job_skills}}
-  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-card>
+          <ion-card-header color="light">
+            <ion-card-title>
+              {{ details.job_post }}
+            </ion-card-title>
+            <ion-card-subtitle >
+             {{ details.eyer_name }}<br>
+             Location : {{ details.eyer_location }}
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content >
+            <ion-item>
+              Salary: {{ details.job_salary }}
+             </ion-item>
+               <ion-item>           
+              Required Experience: {{ details.job_experience}}
+             </ion-item>
+             <ion-item >
+              Employment: {{ details.job_employment }}
+             </ion-item>
+             <ion-item >
+              Minimum Education: {{ details.job_education }}
+             </ion-item>
+             <ion-item >
+              job Discription:{{ details.job_discription }}
+             </ion-item>
+             <ion-item >
+              Skills: {{ details.job_skills }}
+             </ion-item>
+             <ion-item >
+              Working Days: {{ details.job_working_days }}
+             </ion-item>
+             <ion-item >
+              Working Shifts: {{ details.job_working_shifts }}
+             </ion-item>
+             <ion-item >
+              Job Posted By:{{ details.job_posted_name }}
+             </ion-item>
+             <ion-item >
+              {{ details.job_posted_name }}'s Designation: {{ details.job_posted_dasignation }}
+             </ion-item>
+             <ion-item >
+              Perks and Benefits:{{ details.job_benefits }}
+             </ion-item>
+
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+  
 </ion-content>
+<ion-footer>
+  <ion-button  [routerLink] = "['../employee-apply']" color="success" expand="block">Apply for  job</ion-button>
+</ion-footer>
