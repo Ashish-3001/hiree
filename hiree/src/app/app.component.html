@@ -1,11 +1,7 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
-<<<<<<< HEAD
       <ion-content  *ngIf = "this.state == 'employee'"  >
-=======
-      <ion-content  *ngIf = "this.state == ['employee']"  >
->>>>>>> 218b702cdf515e0d7b7f63dc625697596dd21311
         <ion-list id="inbox-list">
           <ion-list-header>Inbox</ion-list-header>
           <ion-note>hi@ionicframework.com</ion-note>
@@ -20,13 +16,12 @@
         <ion-button class="ion-margin-vertical" size='default' color="dark" expand="full" (click) = "logout()">
           Sign Out
         </ion-button>
+        <ion-button class="ion-margin-vertical" size='default' color="dark" expand="full" (click) = "menu_check()">
+          State
+        </ion-button>
       </ion-content>
       
-<<<<<<< HEAD
       <ion-content *ngIf = "this.state == 'employer'" >
-=======
-      <ion-content *ngIf = "this.state == ['employer']" >
->>>>>>> 218b702cdf515e0d7b7f63dc625697596dd21311
         <ion-list id="inbox-list">
           <ion-list-header>hi</ion-list-header>
           <ion-note>hi@ionicframework.com</ion-note>
@@ -40,6 +35,9 @@
         </ion-list>
         <ion-button class="ion-margin-vertical" size='default' color="dark" expand="full" (click) = "logout()">
           Sign Out
+        </ion-button>
+        <ion-button class="ion-margin-vertical" size='default' color="dark" expand="full" (click) = "menu_check()">
+          State
         </ion-button>
       </ion-content>
     </ion-menu>

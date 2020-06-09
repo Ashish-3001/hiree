@@ -33,7 +33,23 @@
     </ion-row>
     <ion-row>
       <ion-col size-md="6" offset-md="3">
-   <ion-item>
+        <ion-item>
+          <ion-label>Position to be offered:</ion-label>
+          <ion-select multiple="true" cancelText="Cancel" okText="Confirm" ngModel name ="post">
+            <ion-select-option value="Bartender">Bartender</ion-select-option>
+            <ion-select-option value="Chef">Chef</ion-select-option>
+            <ion-select-option value="deliver">Delivery Person</ion-select-option>
+            <ion-select-option value="janitor">Janitor</ion-select-option>
+            <ion-select-option value="manager">Manager</ion-select-option>            
+            <ion-select-option value="receptionist">Receptionist</ion-select-option>
+            <ion-select-option value="waiter">Waiter</ion-select-option>        
+          </ion-select>
+      </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-item>
           <ion-label>Monthly Salary</ion-label>
           <ion-select interface="popover" ngModel name ="salary">
             <ion-select-option value="lessThan10000"> less than 10000</ion-select-option>
@@ -45,23 +61,7 @@
             <ion-select-option value="75000_100000">75000-100000</ion-select-option>
             <ion-select-option value="100000">100000+</ion-select-option>
           </ion-select>
-   </ion-item> 
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size-md="6" offset-md="3">
-   <ion-item>
-          <ion-label>Position to be offered:</ion-label>
-          <ion-select multiple="true" cancelText="Cancel" okText="Confirm" ngModel name ="post">
-            <ion-select-option value="Bartender">Bartender</ion-select-option>
-            <ion-select-option value="Chef">Chef</ion-select-option>
-            <ion-select-option value="deliver">Delivery Person</ion-select-option>
-            <ion-select-option value="janitor">Janitor</ion-select-option>
-            <ion-select-option value="manager">Manager</ion-select-option>            
-            <ion-select-option value="receptionist">Receptionist</ion-select-option>
-            <ion-select-option value="waiter">Waiter</ion-select-option>        
-          </ion-select>
-   </ion-item>
+        </ion-item> 
       </ion-col>
     </ion-row>
     <ion-row>

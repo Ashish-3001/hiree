@@ -51,32 +51,32 @@ export class AppComponent implements OnInit {
   public appPagesEyer = [
     {
       title: 'Home',
-      url: '/employee-home',
+      url: '/employer-profile/employer-home',
       icon: 'home'
     },
     {
       title: 'Profile',
-      url: '/employee-home/menu/profile',
+      url: '/employer-profile/employer-home/menu/profile',
       icon: 'person'
     },
     {
       title: 'Favorites',
-      url: '/employee-home/menu/favourites',
+      url: '/employer-profile/employer-home/menu/favourites',
       icon: 'heart'
     },
     {
       title: 'Application Status',
-      url: '/employee-home/menu/apllication-status',
+      url: '/employer-profile/employer-home/menu/apllication-status',
       icon: 'reader'
     },
     {
       title: 'Feedback',
-      url: '/employee-home/Feedback',
+      url: '/employer-profile/employer-home/Feedback',
       icon: 'pencil'
     },
     {
       title: 'Help',
-      url: '/employee-home/Help',
+      url: '/employer-profile/employer-home/Help',
       icon: 'warning'
     }
   ];
@@ -97,11 +97,6 @@ export class AppComponent implements OnInit {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       
-<<<<<<< HEAD
-=======
-
-      
->>>>>>> 218b702cdf515e0d7b7f63dc625697596dd21311
     });
   }
 
@@ -122,7 +117,9 @@ export class AppComponent implements OnInit {
   }
 
   menu_check() {
-    console.log(this.state);
+    this.authService.data.then((value) => {
+      console.log(value[0].id);
+    });
   }
 
 }

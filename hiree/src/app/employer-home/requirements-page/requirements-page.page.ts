@@ -22,8 +22,8 @@ export class RequirementsPagePage implements OnInit {
 
     var postdata = {
       eyer_id: 6,
-      job_name: form.value.post.postedName,
-      job_designation: form.value.post.postedDesignation,
+      job_posted_name: form.value.post.postedName,
+      job_posted_dasignation: form.value.post.postedDesignation,
       job_salary: form.value.post.salary,
       job_post: form.value.post.toString(),
       job_experience: form.value.previousExperience,

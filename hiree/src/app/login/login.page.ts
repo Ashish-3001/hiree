@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { GetService } from '../servvices/get.service';
 import { AuthenticationService } from '../servvices/authentication.service';
 import { AppComponent } from '../app.component';
+import { Storage } from '@ionic/storage';
 
 
 @Component({
@@ -23,6 +24,7 @@ export class LoginPage implements OnInit {
      private http: HttpClient, 
      public navCtrl: NavController,
      private login: GetService,
+     private storage: Storage,
      private authService: AuthenticationService,
      private menu: AppComponent,
      ) { 
@@ -30,7 +32,6 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
-   
   }
 
   ionViewWillEnter() {
@@ -39,6 +40,7 @@ export class LoginPage implements OnInit {
 
   LogIn_var() {
     this.login.login(this.login_id,this.login_pas);
+    
   }
 
   ionViewWillLeave() {
