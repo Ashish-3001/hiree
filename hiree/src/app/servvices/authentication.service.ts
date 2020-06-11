@@ -26,23 +26,33 @@ export class AuthenticationService {
     });
   } 
 
-  login(type:string) {
+  login(type:string, user_id: number) {
     if(type == 'employee'){
       this.router.navigate(['/employee-home']);
       this.http.get('http://127.0.0.1:8000/EmployeeDetails/').subscribe( (data) =>{
         console.log(data);
-        this.storage.set(DATA_KEY, data ).then(res => {
-          console.log(res);
-        });
+        for(var j=0; j >=0;j++) {
+          if(user_id == data[j].user_id) {
+            this.storage.set(DATA_KEY, data[j] ).then(res => {
+              console.log(res);
+            });
+            break;
+          }
+        }
       });
     }
     else if(type == 'employer') {
       this.router.navigate(['employer-profile']);
       this.http.get('http://127.0.0.1:8000/EmployerDetails/').subscribe( (data) =>{
         console.log(data);
-        this.storage.set(DATA_KEY, data ).then(res => {
-          console.log(res);
-        });
+        for(var j=0; j >=0;j++) {
+          if(user_id == data[j].user_id) {
+            this.storage.set(DATA_KEY, data[j] ).then(res => {
+              console.log(res);
+            });
+            break;
+          }
+        }
       });
     }
     this.storage.set(TOKEN_KEY, type ).then(res => {

@@ -118,7 +118,7 @@ export class AppComponent implements OnInit {
 
   menu_check() {
     this.authService.data.then((value) => {
-      console.log(value[0].id);
+      console.log(value);
     });
   }
 

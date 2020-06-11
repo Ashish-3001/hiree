@@ -20,10 +20,9 @@ export class RegisterAsEmployeePage implements OnInit {
   }
   onSubmit(form: NgForm) {
     var postdata = {
-      user_id: 1,
-      eyee_name: 2,
-      eyee_fname: form.value.fName,
-      eyee_sname: form.value.sName,
+      user_id: "",
+      user_phone: "",
+      eyee_name: form.value.Name,
       eyee_aadhar_no: form.value.aadhar,
       eyee_age: form.value.age,
       eyee_gender: form.value.gender,
@@ -39,12 +38,11 @@ export class RegisterAsEmployeePage implements OnInit {
       eyee_place_pre_experience: form.value.placePreviousExprience,
       eyee_add_skills: form.value.additionalSkills,
       eyee_salary_expected: 5000,
-      }
+    }
+    
     this.postdata.post_employee_details(postdata);
-   }
-   onImagePicked(imageData: string){
-     
-   }
   }
+
+}
 
   

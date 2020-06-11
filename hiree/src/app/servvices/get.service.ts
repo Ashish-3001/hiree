@@ -30,34 +30,17 @@ export class GetService {
       for(this.i; this.i >= 0; this.i++){
         if(login_id == this.dat[this.i].user_phone_no || login_id == this.dat[this.i].user_email){
           if(login_pas == this.dat[this.i].user_password) {
-            this.authService.login(this.dat[this.i].user_type);
+            this.authService.login(this.dat[this.i].user_type, this.dat[this.i].id);
             this.logged_user_id.next(this.dat[this.i].id);
             console.log(this.menu.state);
             console.log(this.dat[this.i].id);
             if(this.dat[this.i].user_type == 'employer') {
-              this.http.get('http://127.0.0.1:8000/EmployerDetails/').subscribe( (data) =>{
-                for(var j=0; j >=0;j++) {
-                  if(this.logged_user_id.value == data[j].user_id) {   
-                    this.logged_ey_id.next(data[j]);
-                    console.log(data[j]);
-                    this.get_employee();
-                    break;
-                  }
-                }
-              });
+             this.get_employee();    
             }
-            else {
-              this.http.get('http://127.0.0.1:8000/EmployeeDetails/').subscribe( (data) =>{
-                for(var j=0; j >=0;j++) {
-                  if(this.logged_user_id.value == data[j].user_id) {
-                    this.logged_ey_id.next(data[j]);
-                    console.log(data[j]);
-                    this.get_employer();
-                    this.get_job_post();
-                    break;
-                  }
-                }
-              });
+            else 
+            {
+              this.get_employer();
+              this.get_job_post();
             }
             break;
           }
