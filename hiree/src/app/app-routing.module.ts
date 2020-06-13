@@ -31,6 +31,10 @@ const routes: Routes = [
         loadChildren: () => import('./employer-home/menu/applications-recived/application-status.module').then( m => m.ApplicationsRecPageModule)
       },
       {
+        path: 'menu/apllication-status/:eyer_id',
+        loadChildren: () => import('./employer-home/menu/applications-recived/job_status_details/details.module').then( m => m.DetailsPageModule)
+      },
+      {
         path: ':eyer_id/job-offer',
         loadChildren: () => import('./employer-home/job-offer/job-offer.module').then( m => m.JobOfferPageModule)
       }

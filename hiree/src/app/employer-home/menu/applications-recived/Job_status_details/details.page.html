@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>hey</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-card>
+          <ion-card-header color="light">
+            <ion-card-title>
+              {{ details.job_post }}
+            </ion-card-title>
+            <ion-card-subtitle >
+             {{ details.eyer_name }}<br>
+             Location : {{ details.eyer_location }}
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content >
+            <ion-item>
+              Salary: {{ details.job_salary }}
+             </ion-item>
+               <ion-item>           
+              Required Experience: {{ details.job_experience}}
+             </ion-item>
+             <ion-item >
+              Employment: {{ details.job_employment }}
+             </ion-item>
+             <ion-item >
+              Minimum Education: {{ details.job_education }}
+             </ion-item>
+             <ion-item >
+              job Discription:{{ details.job_discription }}
+             </ion-item>
+             <ion-item >
+              Skills: {{ details.job_skills }}
+             </ion-item>
+             <ion-item >
+              Working Days: {{ details.job_working_days }}
+             </ion-item>
+             <ion-item >
+              Working Shifts: {{ details.job_working_shifts }}
+             </ion-item>
+             <ion-item >
+              Job Posted By:{{ details.job_posted_name }}
+             </ion-item>
+             <ion-item >
+              {{ details.job_posted_name }}'s Designation: {{ details.job_posted_dasignation }}
+             </ion-item>
+             <ion-item >
+              Perks and Benefits:{{ details.job_benefits }}
+             </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-button [routerLink] = "['/employer-profile/employer-home//menu/apllication-status']" (click) = "deactivate()" color="success" expand="block">
+    delete job 
+  </ion-button>
+</ion-footer>
+  
