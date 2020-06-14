@@ -1,7 +1,8 @@
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable, OnChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { GetService } from '../servvices/get.service';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 
 @Injectable()
@@ -12,14 +13,15 @@ import { GetService } from '../servvices/get.service';
 })
 export class FolderPage implements OnInit {
   public folder: string;
+  job_post_toggle: boolean = false;
   
-
+  
   results: object = [{ }];
   loading: boolean = false;
 
   constructor(private activatedRoute: ActivatedRoute, 
     public menuCtrl: MenuController,
-    private get: GetService) 
+    public get: GetService) 
   { 
     
     
@@ -27,7 +29,13 @@ export class FolderPage implements OnInit {
 
   ngOnInit() {
     this.get.get_employee();
-    
+    this.get.job_post_state.subscribe( (number) => {
+      console.log(number);
+    });
+  }
+
+  state() {
+    this.job_post_toggle = !this.job_post_toggle;
   }
 
   ionViewWillEnter() {

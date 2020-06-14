@@ -10,6 +10,7 @@ import { AppComponent } from '../app.component';
 export class GetService {
   logged_user_id = new BehaviorSubject(0);
   logged_ey_id = new BehaviorSubject(0);
+  job_post_state = new BehaviorSubject<number>(1);
 
 
   results_eyee_details: object = [{ }];
