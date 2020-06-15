@@ -35,6 +35,10 @@ const routes: Routes = [
         loadChildren: () => import('./employer-home/menu/applications-recived/job_status_details/details.module').then( m => m.DetailsPageModule)
       },
       {
+        path: 'menu/apllication-status/:eyer_id/jobs-offered',
+        loadChildren: () => import('./employer-home/menu/applications-recived/jobs-offered/jobs-offered.module').then( m => m.JobsOfferedPageModule)
+      },
+      {
         path: ':eyer_id/job-offer',
         loadChildren: () => import('./employer-home/job-offer/job-offer.module').then( m => m.JobOfferPageModule)
       }
@@ -97,6 +101,8 @@ const routes: Routes = [
     path: 'employer-profile',
     loadChildren: () => import('./employer-home/employer-profile/employer-profile.module').then( m => m.EmployerProfilePageModule)
   },
+  
+  
   
 ];
 

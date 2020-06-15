@@ -58,8 +58,11 @@
   </ion-grid>
 </ion-content>
 <ion-footer>
-  <ion-button [routerLink] = "['/employer-profile/employer-home//menu/apllication-status']" (click) = "deactivate()" color="success" expand="block">
-    delete job 
+  <ion-button [routerLink] = "['../jobs-offered']"  color="success" expand="block">
+    Jobs Offered 
+  </ion-button>
+  <ion-button [routerLink] = "['/employer-profile/employer-home//menu/apllication-status']" (click) = "deactivate()" color="danger" expand="block">
+    Delete job 
   </ion-button>
 </ion-footer>
   
