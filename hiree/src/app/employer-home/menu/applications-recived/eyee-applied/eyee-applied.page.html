@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>jobs-offered</ion-title>
+    <ion-title>eyee_applied</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,7 +8,7 @@
   <ion-grid>
     <ion-row>
       <ion-col size-md="6" offset-md="3">
-        <ion-card *ngFor = " let result of offered_jobs; let i = index" >
+        <ion-card *ngFor = " let result of applied_jobs; let i = index" >
           <div *ngIf= "!job_post_toggle">
             <ion-card-header  color="light">
               <ion-card-title>
@@ -30,6 +30,8 @@
               </ion-item>
             </ion-card-content>
             <ion-card-content>
+              <ion-button  color="danger" >Reject</ion-button>
+              <ion-button  color="success" >Accept</ion-button>
               <ion-button  color="primary" expand="block" (click) = "state(i)">Read More</ion-button>
             </ion-card-content>
           </div>
@@ -37,43 +39,41 @@
         <div *ngIf= "job_post_toggle">
           <ion-card-header color="light">
             <ion-card-title>
-              {{ offered_jobs[n].eyee_name }}
+              {{ applied_jobs[n].eyee_name }}
             </ion-card-title>
             <ion-card-subtitle >
-             Location : {{ offered_jobs[n].eyee_city }}
+             Location : {{ applied_jobs[n].eyee_city }}
             </ion-card-subtitle>
           </ion-card-header>
           <ion-card-content >
             <ion-item>
-              Previous Experience : {{ offered_jobs[n].eyee_pre_experience }}
-             </ion-item>
-            <ion-item >
-              Expected Salary : {{ offered_jobs[n].salary_expected }}
+              Previous Experience : {{ applied_jobs[n].eyee_pre_experience }}
              </ion-item>
              <ion-item >
-              Minimum Education : {{ offered_jobs[n].eyee_education }}
+              Previous place of Work : {{ applied_jobs[n].eyee_place_pre_experience }}
              </ion-item>
              <ion-item >
-              Previous place of Work : {{ offered_jobs[n].place_pre_experience }}
+              Minimum Education : {{ applied_jobs[n].eyee_education }}
              </ion-item>
              <ion-item >
-              Job Preference : {{ offered_jobs[n].choice }}
-             </ion-item>
-             
-             <ion-item >
-              Time of Work : {{ offered_jobs[n].eyee_time }}
+              Job Preference : {{ applied_jobs[n].choice }}
              </ion-item>
              <ion-item >
-              Age : {{ offered_jobs[n].eyee_age }}
+              Time of Work : {{ applied_jobs[n].eyee_time }}
              </ion-item>
              <ion-item >
-              Gender : {{ offered_jobs[n].eyee_gender }}
+              Age : {{ applied_jobs[n].eyee_age }}
              </ion-item>
              <ion-item >
-              Additional Skills : {{ offered_jobs[n].eyee_add_skills}}
+              Gender : {{ applied_jobs[n].eyee_gender }}
+             </ion-item>
+             <ion-item >
+              Additional Skills : {{ applied_jobs[n].eyee_add_skills}}
              </ion-item>
           </ion-card-content>
           <ion-card-content>
+            <ion-button  color="danger" >Reject</ion-button>
+            <ion-button  color="success" (click) = "accept()" >Accept</ion-button>
             <ion-button  color="primary" expand="block" (click) = "state(0)">Back To List</ion-button>
           </ion-card-content>
         </div>

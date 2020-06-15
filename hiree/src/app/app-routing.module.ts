@@ -39,6 +39,14 @@ const routes: Routes = [
         loadChildren: () => import('./employer-home/menu/applications-recived/jobs-offered/jobs-offered.module').then( m => m.JobsOfferedPageModule)
       },
       {
+        path: 'menu/apllication-status/:eyer_id/eyee-applied',
+        loadChildren: () => import('./employer-home/menu/applications-recived/eyee-applied/eyee-applied.module').then( m => m.EyeeAppliedPageModule)
+      },
+      {
+        path: 'menu/apllication-status/:eyer_id/eyee-shortlisted',
+        loadChildren: () => import('./employer-home/menu/applications-recived/eyee-shortlisted/eyee-shortlisted.module').then( m => m.EyeeShortlistedPageModule)
+      },
+      {
         path: ':eyer_id/job-offer',
         loadChildren: () => import('./employer-home/job-offer/job-offer.module').then( m => m.JobOfferPageModule)
       }
@@ -101,6 +109,10 @@ const routes: Routes = [
     path: 'employer-profile',
     loadChildren: () => import('./employer-home/employer-profile/employer-profile.module').then( m => m.EmployerProfilePageModule)
   },
+  
+
+  
+
   
   
   

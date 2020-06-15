@@ -8,8 +8,9 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./jobs-offered.page.scss'],
 })
 export class JobsOfferedPage implements OnInit {
+  job_post_toggle: boolean = false;
   offered_jobs: object = [{  }];
-  abc: any;
+  n:number;
   
 
   constructor(private acitivatedRoute: ActivatedRoute, private http: HttpClient,) { }
@@ -33,4 +34,9 @@ export class JobsOfferedPage implements OnInit {
     });
   }
 
+  state(i) {
+    this.job_post_toggle = !this.job_post_toggle;
+    this.n = i;
+    console.log(this.n);
+  }
 }
