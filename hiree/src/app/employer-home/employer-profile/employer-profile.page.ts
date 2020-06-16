@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employer-profile.page.scss'],
 })
 export class EmployerProfilePage implements OnInit {
+  details: object = [{ }] ;
 
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
