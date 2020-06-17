@@ -16,34 +16,119 @@
           <ion-card>
       <ion-card-header >
         <ion-card-title color="primary">{{ details.eyer_hotel_name }}</ion-card-title>
-        <ion-card-subtitle color="medium"><h4>{{ details.eyer_category }}</h4><br><h5>{{ details.eyer_address_1 }},<br>{{ details.eyer_address_2 }}
-        <br>{{ details.eyer_city }}</h5>
+        <ion-card-subtitle color="medium">Phone Number: {{ details.eyer_phone }}
         </ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-        <p>
-          <ion-chip color="secondary">
-            <ion-label>Active Job Post: {{ details.eyer_active_job_post}} </ion-label>
-          </ion-chip>
-          <ion-chip color="secondary">
-            <ion-label>total Number of Job Post: {{ details.eyer_tot_no_job_post}} </ion-label>
-          </ion-chip>
-          <ion-chip color="danger">
-            <ion-label>Total Number of Job Offered: {{ details.eyer_job_offer}} </ion-label>
-          </ion-chip>
-          <ion-chip color="danger">
-            <ion-label>Total Number of Employees Hired: {{ details.eyer_job_hier}} </ion-label>
-          </ion-chip>
-        </p>
+        <div>GST Number: {{ details.eyer_gst_no}}</div>
+        <div>{{ details.eyer_category }}-{{ details.eyer_cuisines }}</div>
         <ion-button (click) = "state()" fill="outline" slot="end" expand="block" >
           View More
         </ion-button>
       </ion-card-content>
       
-    </ion-card>
-  </ion-col>
-  </ion-row>
-  </ion-grid>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
+          <ion-card>
+      <ion-card-header >
+        <ion-card-title color="primary">Job Post Details:</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col offset-4>
+             <ion-text color="danger">
+             <h2>Active Job Post:</h2>
+              </ion-text>
+             
+            </ion-col>
+            <ion-col offset-4>
+              <ion-text color="danger">
+                <h2>Total Job Post:</h2>
+              </ion-text>
+             </ion-col>
+
+          </ion-row>
+         
+            <ion-row>
+              <ion-col offset-4 class="ion-margin">
+               <div  class="ion-text-center">
+                 <ion-text color="success">
+                    <H1>{{ details.eyer_active_job_post}}</H1> 
+                </ion-text> 
+              </div>
+              </ion-col>
+              <ion-col offset-4 class="ion-margin">
+                <div  class="ion-text-center">
+                  <ion-text color="success">
+                     <H1>{{ details.eyer_tot_no_job_post}}</H1> 
+                 </ion-text> 
+               </div>
+               </ion-col>
+            </ion-row>
+        </ion-grid>
+      </ion-card-content>
+      
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
+          <ion-card>
+            <ion-card-header >
+              <ion-card-title color="primary">Employee Relationship Status:</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col offset-4>
+                   <ion-text color="danger">
+                   <h2>Total Job Offered:</h2>
+                    </ion-text>
+                   
+                  </ion-col>
+                  <ion-col offset-4>
+                    <ion-text color="danger">
+                      <h2>Total Employees Hired:</h2>
+                    </ion-text>
+                   </ion-col>
+      
+                </ion-row>
+               
+                  <ion-row>
+                    <ion-col offset-4 class="ion-margin">
+                     <div  class="ion-text-center">
+                       <ion-text color="success">
+                          <H1>{{ details.eyer_job_offer}}</H1> 
+                      </ion-text> 
+                    </div>
+                    </ion-col>
+                    <ion-col offset-4 class="ion-margin">
+                      <div  class="ion-text-center">
+                        <ion-text color="success">
+                           <H1>{{ details.eyer_job_hier}}</H1> 
+                       </ion-text> 
+                     </div>
+                     </ion-col>
+                  </ion-row>
+              </ion-grid>
+            </ion-card-content>
+            
+                </ion-card>
+          
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+      
+         
+          
+         
+         
+       
+      
   </div>
   <div *ngIf= "job_post_toggle">
     <ion-grid>
@@ -52,11 +137,24 @@
           <ion-card>
       <ion-card-header >
         <ion-card-title color="primary">{{ details.eyer_hotel_name }}</ion-card-title>
-        <ion-card-subtitle color="medium"><h4>{{ details.eyer_category }}</h4><br><h5>{{ details.eyer_address_1 }},<br>{{ details.eyer_address_2 }}
-        <br>{{ details.eyer_city }}</h5>
+        <ion-card-subtitle color="medium">Phone Number: {{details.eyer_phone }}
         </ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
+        <div>GST Number: {{ details.eyer_gst_no }}</div>
+        <div>{{ details.eyer_category }}-{{ details.eyer_cuisines}}</div>
+        <ion-item>
+          Address Line 1: {{ details.eyer_address_1 }}
+        </ion-item>
+        <ion-item>
+          Address Line 2: {{ details.eyer_address_2 }}
+        </ion-item>
+        <ion-item>
+          City: {{ details.eyer_city }}
+        </ion-item>
+        <ion-item>
+          State: {{ details.eyer_state }}
+        </ion-item>
         <ion-item>
           Type: {{ details.eyer_type }}
         </ion-item>
@@ -87,7 +185,8 @@
           </ion-chip>
         </p>
         
-          <ion-button fill="outline" color="warning"slot="end" expand="block">
+          <ion-button fill="outline"
+           color="warning"slot="end" expand="block">
             Edit Profile 
           </ion-button>
           <ion-button (click) = "state()" fill="outline" slot="end" expand="block">
