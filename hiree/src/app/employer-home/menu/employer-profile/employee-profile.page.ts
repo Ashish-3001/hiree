@@ -11,7 +11,7 @@ import { AuthenticationService } from 'src/app/servvices/authentication.service'
 export class EmployerProfilePage implements OnInit {
   job_post_toggle: boolean = false;
 
-  details: object = { };
+  details:any = {};
 
   constructor(private authService: AuthenticationService) { }
 
