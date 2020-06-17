@@ -12,8 +12,10 @@ import { BehaviorSubject, Observable } from 'rxjs';
   styleUrls: ['./employer-home.page.scss'],
 })
 export class FolderPage implements OnInit {
+  public selectedIndex = [];
   public folder: string;
   job_post_toggle: boolean = false;
+  favourite_state: boolean = false;
   
   
   results: object = [{ }];
@@ -36,6 +38,20 @@ export class FolderPage implements OnInit {
 
   state() {
     this.job_post_toggle = !this.job_post_toggle;
+  }
+
+  favourite(i) {
+    if(this.selectedIndex[i] == null) {
+      this.selectedIndex[i] = 1;
+      console.log(this.selectedIndex);
+    }
+    else if(this.selectedIndex[i] == 0) {
+      this.selectedIndex[i] = 1;
+    }
+    else if(this.selectedIndex[i] == 1) {
+      this.selectedIndex[i] = 0;
+    }
+    
   }
 
   ionViewWillEnter() {

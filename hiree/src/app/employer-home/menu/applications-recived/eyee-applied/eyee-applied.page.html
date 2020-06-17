@@ -30,8 +30,6 @@
               </ion-item>
             </ion-card-content>
             <ion-card-content>
-              <ion-button  color="danger" >Reject</ion-button>
-              <ion-button  color="success" >Accept</ion-button>
               <ion-button  color="primary" expand="block" (click) = "state(i)">Read More</ion-button>
             </ion-card-content>
           </div>
@@ -72,8 +70,8 @@
              </ion-item>
           </ion-card-content>
           <ion-card-content>
-            <ion-button  color="danger" >Reject</ion-button>
-            <ion-button  color="success" (click) = "accept()" >Accept</ion-button>
+            <ion-button  color="danger" (click) = "reject()" [routerLink] = "['/employer-profile/employer-home/menu/apllication-status/', this.value[this.n].job_id]" >Reject</ion-button>
+            <ion-button  color="success" (click) = "accept()" [routerLink] = "['/employer-profile/employer-home/menu/apllication-status/', this.value[this.n].job_id]" >Accept</ion-button>
             <ion-button  color="primary" expand="block" (click) = "state(0)">Back To List</ion-button>
           </ion-card-content>
         </div>
