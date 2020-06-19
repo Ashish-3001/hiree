@@ -3,12 +3,10 @@
     <ion-buttons slot="start" class="ion-padding">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title><ion-chip>
-      <ion-avatar>
-        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjYzVkYmZmIiBkPSJNMCAwaDUxMnY1MTJIMHoiLz48cGF0aCBkPSJNMjU2IDMwNGM2MS42IDAgMTEyLTUwLjQgMTEyLTExMlMzMTcuNiA4MCAyNTYgODBzLTExMiA1MC40LTExMiAxMTIgNTAuNCAxMTIgMTEyIDExMnptMCA0MGMtNzQuMiAwLTIyNCAzNy44LTIyNCAxMTJ2NTZoNDQ4di01NmMwLTc0LjItMTQ5LjgtMTEyLTIyNC0xMTJ6IiBmaWxsPSIjODJhZWZmIi8+PC9zdmc+" />
-      </ion-avatar>
-      <ion-label>Hotel_Name</ion-label>
-    </ion-chip></ion-title>
+    <ion-title><ion-text color="secondary">
+      <div class="heading">Hiree</div>
+    </ion-text>
+  </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -19,7 +17,7 @@
       <ion-col size-md="6" offset-md="3">
         <ion-item>
           <ion-label>Position to be offered:</ion-label>
-          <ion-select multiple="true" cancelText="Cancel" okText="Confirm" ngModel name ="post">
+          <ion-select interface="popover" ngModel name ="post">
             <ion-select-option value="Bartender">Bartender</ion-select-option>
             <ion-select-option value="Chef">Chef</ion-select-option>
             <ion-select-option value="deliver">Delivery Person</ion-select-option>
@@ -162,7 +160,7 @@
     <ion-row>
       <ion-col size-md="6" offset-md="3">
         <ion-item>
-          <ion-label position="floating">Additional Skills:</ion-label>
+          <ion-label position="floating">Skills:</ion-label>
           <ion-input type = 'text' ngModel name ="additionalSkills" ></ion-input>
         </ion-item>
       </ion-col>
