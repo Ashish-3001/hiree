@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetService } from 'src/app/servvices/get.service';
 import { HttpClient } from '@angular/common/http';
+import { AuthenticationService } from 'src/app/servvices/authentication.service';
 
 @Component({
   selector: 'app-employee-profile',
@@ -8,14 +9,19 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./employee-profile.page.scss'],
 })
 export class EmployeeProfilePage implements OnInit {
+  job_post_toggle: boolean = false;
+  details: any = {};
 
-  employee_details: any;
-
-  constructor(private http:HttpClient, private get: GetService) { }
+  constructor(private http:HttpClient, private get: GetService,private authService: AuthenticationService) { }
 
   ngOnInit() {
-    this.employee_details = this.get.logged_ey_id.value;
-    console.log(this.employee_details);    
+    this.authService.data.then((value) => {
+      this.details = value;
+      console.log(value);
+    });    
   }
 
+  state() {
+    this.job_post_toggle = !this.job_post_toggle;
+  }
 }
