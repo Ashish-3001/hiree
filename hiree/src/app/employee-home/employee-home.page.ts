@@ -32,7 +32,7 @@ export class EmployeeHomePage implements OnInit {
 
     this.authService.data.then((value:any) => {
       this.eyee_details = value;
-      this.http.get(`http://127.0.0.1:8000/EmployeeDetailsFav/?eyee_id=${this.eyee_details.id}`).subscribe( (data:any) => {
+      this.http.get(`http://127.0.0.1:8000/EmployeeDetailsFav/?eyee_id=${this.eyee_details.id}&unliked=`).subscribe( (data:any) => {
         this.fav = data;
         for(var i=0; i>=0;i++) {
           if(this.fav[i].job_id) {
