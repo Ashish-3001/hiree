@@ -55,6 +55,12 @@ export class EyeeShortlistedPage implements OnInit {
     this.http.patch(`http://127.0.0.1:8000/JobPost/${this.value[this.n].job_id}/`, deletedata ).subscribe( (data) =>{
       console.log(data);
     });
+    var pacth = {
+      eyee_no_shortlisted: this.value[this.n].eyee_id,
+    }
+    this.http.patch(`http://127.0.0.1:8000/EmployeeDetails/${this.value[this.n].eyee_id}/`, pacth).subscribe( (data) => {
+      console.log(data);
+    });
   }
 
   reject() {
