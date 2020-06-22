@@ -100,6 +100,18 @@ export class EmployeeHomePage implements OnInit {
     }
   }
 
+  update(id) {
+    this.http.get(`http://127.0.0.1:8000/JobPost/${id}/`).subscribe( (data:any) => {
+      var pacthjob = {
+        job_post_opened: ++data.job_post_opened,
+      }
+      this.http.patch(`http://127.0.0.1:8000/JobPost/${id}/`, pacthjob).subscribe( (data) => {
+        console.log(data);
+      });
+    });
+
+  }
+
   ionViewWillEnter() {
     this.menuCtrl.enable(true);
     this.results_job = this.get.results_job_post;
