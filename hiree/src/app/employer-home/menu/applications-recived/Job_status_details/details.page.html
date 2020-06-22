@@ -15,62 +15,103 @@
               {{ details.job_post }}
             </ion-card-title>
             <ion-card-subtitle >
-             {{ details.eyer_name }}<br>
-             Location : {{ details.eyer_location }}
+             {{ details.eyer_name }}            
             </ion-card-subtitle>
           </ion-card-header>
           <ion-card-content >
-            <ion-item>
-              Salary: {{ details.job_salary }}
-             </ion-item>
-               <ion-item>           
-              Required Experience: {{ details.job_experience}}
-             </ion-item>
-             <ion-item >
-              Employment: {{ details.job_employment }}
-             </ion-item>
-             <ion-item >
-              Minimum Education: {{ details.job_education }}
-             </ion-item>
-             <ion-item >
-              job Discription:{{ details.job_discription }}
-             </ion-item>
-             <ion-item >
-              Skills: {{ details.job_skills }}
-             </ion-item>
-             <ion-item >
-              Working Days: {{ details.job_working_days }}
-             </ion-item>
-             <ion-item >
-              Working Shifts: {{ details.job_working_shifts }}
-             </ion-item>
-             <ion-item >
-              Job Posted By:{{ details.job_posted_name }}
-             </ion-item>
-             <ion-item >
-              {{ details.job_posted_name }}'s Designation: {{ details.job_posted_dasignation }}
-             </ion-item>
-             <ion-item >
-              Perks and Benefits:{{ details.job_benefits }}
-             </ion-item>
-          </ion-card-content>
+            <ion-row>
+              <ion-col>
+                <div class="head">Salary:</div>
+                <div class="body">{{ details.job_salary }}</div>
+              </ion-col>
+              <ion-col>
+                <div class="head">Minimum Education :</div>
+                <div class="body">{{ details.job_education }}</div>
+              </ion-col>
+              <ion-col>
+                <div class="head">Required Experience :</div>
+                <div class="body">{{ details.job_experience}}</div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <div class="head">Employment:</div>
+                <div class="body">{{ details.job_employment }}</div>
+              </ion-col>
+              <ion-col>
+                <div class="head">Working Days:</div>
+                <div class="body">{{ details.job_working_days }}</div>
+              </ion-col>
+              <ion-col>
+                <div class="head">Working Shifts:</div>
+                <div class="body">{{ details.job_working_shifts }}</div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <div class="ques">job Description:</div>
+                <div class="ans">{{ details.job_discription }}</div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <div class="ques">Skills:</div>
+                <div class="ans">{{ details.job_skills }}</div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <div class="ques">Job Posted By:</div>
+                <div class="ans">{{ details.job_posted_by }}</div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <div class="ques">{{ details.job_posted_by }}'s Designation:</div>
+                <div class="ans">{{ details.job_posted_designation }}</div>
+              </ion-col>
+            </ion-row>    
+            <ion-row>
+              <ion-col>
+                <div class="ques">Perks and Benefits:</div>
+                <div class="ans">{{ details.job_benefits }}</div>
+              </ion-col>
+            </ion-row>  
+         </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
-  </ion-grid>
+    </ion-grid>
+  
 </ion-content>
 <ion-footer>
-  <ion-button [routerLink] = "['../eyee-shortlisted']"  color="success" expand="block">
-    Shorlisted Employees 
-  </ion-button>
-  <ion-button [routerLink] = "['../eyee-applied']"  color="success" expand="block">
-    Applications Recived
-  </ion-button>
-  <ion-button [routerLink] = "['../jobs-offered']"  color="success" expand="block">
-    Jobs Offered 
-  </ion-button>
-  <ion-button [routerLink] = "['/employer-profile/employer-home//menu/apllication-status']" (click) = "deactivate()" color="danger" expand="block">
-    Delete job 
-  </ion-button>
+  <ion-grid>
+    <ion-row>
+      
+      <ion-col>
+        <div><ion-button [routerLink] = "['../eyee-applied']"  color="secondary" expand="block">
+          Applications Recieved
+        </ion-button></div>
+      </ion-col>
+      <ion-col >
+        <div><ion-button [routerLink] = "['../eyee-shortlisted']"  color="secondary" expand="block">
+          Shorlisted Employees 
+        </ion-button></div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div><ion-button [routerLink] = "['../jobs-offered']"  color="success" expand="block">
+          Jobs Offered 
+        </ion-button></div>
+      </ion-col>
+      <ion-col >
+        <div><ion-button [routerLink] = "['/employer-profile/employer-home//menu/apllication-status']" (click) = "deactivate()" color="danger" expand="block">
+          Delete job 
+        </ion-button></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
 </ion-footer>
   
