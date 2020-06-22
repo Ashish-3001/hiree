@@ -16,7 +16,7 @@
                 {{ result.eyee_name }}
               </ion-card-title>
               <ion-card-subtitle >
-                Location : {{ result.eyee_city }}
+                Phone Number : {{ result.eyee_phone }}
               </ion-card-subtitle>
             </ion-card-header>
             <ion-card-content >
@@ -41,42 +41,62 @@
               {{ offered_jobs[n].eyee_name }}
             </ion-card-title>
             <ion-card-subtitle >
-             Location : {{ offered_jobs[n].eyee_city }}
+             Phone Number : {{ offered_jobs[n].eyee_phone }}
             </ion-card-subtitle>
           </ion-card-header>
           <ion-card-content >
-            <ion-item>
-              Previous Experience : {{ offered_jobs[n].eyee_pre_experience }}
-             </ion-item>
-            <ion-item >
-              Expected Salary : {{ offered_jobs[n].salary_expected }}
-             </ion-item>
-             <ion-item >
-              Minimum Education : {{ offered_jobs[n].eyee_education }}
-             </ion-item>
-             <ion-item >
-              Previous place of Work : {{ offered_jobs[n].place_pre_experience }}
-             </ion-item>
-             <ion-item >
-              Job Preference : {{ offered_jobs[n].choice }}
-             </ion-item>
+            <ion-grid>
+            <ion-row>
+              <ion-col col-6>
+                <div class="ques">Previous Experience :</div>
+                <div class="ans">{{ offered_jobs[n].eyee_pre_experience }}</div>
+              </ion-col>
+              <ion-col>
+                <div class="ques">Expected Salary :</div>
+                <div class="ans">{{ offered_jobs[n].eyee_salary_expected }}</div>
+              </ion-col>
+              <ion-col>
+                <div class="ques">Minimum Education :</div>
+                <div class="ans">{{ offered_jobs[n].eyee_education }}</div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-6>
+                <div class="ques">Job Preference :</div>
+                <div class="ans">{{ offered_jobs[n].eyee_choice }}</div>
+              </ion-col>
+              <ion-col>
+                <div class="ques">Time of Work :</div>
+                <div class="ans">{{ offered_jobs[n].eyee_time }}</div>
+              </ion-col>
+            </ion-row>
+            
+            <ion-row>
+              <ion-col col-6>
+                <div class="ques">Age :</div>
+                <div class="ans">{{ offered_jobs[n].eyee_age }}</div>
+              </ion-col>
+              <ion-col>
+                <div class="ques">Gender :</div>
+                <div class="ans">{{ offered_jobs[n].eyee_gender }}</div>
+              </ion-col>
+            </ion-row>
              
-             <ion-item >
-              Time of Work : {{ offered_jobs[n].eyee_time }}
-             </ion-item>
-             <ion-item >
-              Age : {{ offered_jobs[n].eyee_age }}
-             </ion-item>
-             <ion-item >
-              Gender : {{ offered_jobs[n].eyee_gender }}
-             </ion-item>
-             <ion-item >
-              Additional Skills : {{ offered_jobs[n].eyee_add_skills}}
-             </ion-item>
+            <ion-row>
+              <ion-col>
+                <div class="ques">Additional Skills : </div>
+                  <div class="ans">{{ offered_jobs[n].eyee_add_skills}}</div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-button  color="primary" expand="block" (click) = "state(0)">Back To List</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+             
           </ion-card-content>
-          <ion-card-content>
-            <ion-button  color="primary" expand="block" (click) = "state(0)">Back To List</ion-button>
-          </ion-card-content>
+         
         </div>
       </ion-col>
     </ion-row>
