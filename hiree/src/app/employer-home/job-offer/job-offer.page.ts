@@ -34,9 +34,11 @@ export class JobOfferPage implements OnInit {
         eyer_name: "",
         offer_letter: "Congratulations, You can be a part of THIS Hotel with the summoned designation.We are impressed with your profile and looking forward to meet you.",
       }
+      var eyee_no_offered:any;
       postdata.eyee_id = paraMap.get('eyer_id');
       this.http.get(`http://127.0.0.1:8000/EmployeeDetails/${postdata.eyee_id}/`).subscribe( (data:any) => {
         postdata.eyee_name = data.eyee_name;
+        eyee_no_offered = data.eyee_no_offered;
       });
       this.authService.data.then((value) => {
         postdata.eyer_id = value.id;
@@ -68,6 +70,12 @@ export class JobOfferPage implements OnInit {
             });
           });
         }
+        var pacth = {
+          eyee_no_offered: ++eyee_no_offered,
+        }
+        this.http.patch(`http://127.0.0.1:8000/EmployeeDetails/${postdata.eyee_id}/`, pacth).subscribe( (data) => {
+          console.log(data);
+        });
       });
     });
   }

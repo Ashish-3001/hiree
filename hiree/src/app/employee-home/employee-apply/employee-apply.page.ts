@@ -22,6 +22,7 @@ export class EmployeeApplyPage implements OnInit {
     what_can_he_do: "",
     quries: "",
   }
+  eyee_no_appiled:any;
 
   constructor(
     private acitivatedRoute: ActivatedRoute, 
@@ -41,7 +42,7 @@ export class EmployeeApplyPage implements OnInit {
       });
       this.authService.data.then((value) => {
         this.postdata.eyee_id = value.id;
-        console.log(this.postdata.eyee_id);
+        this.eyee_no_appiled = value.eyee_no_appiled;
         this.postdata.eyee_name = value.eyee_name;
       });
     });
@@ -52,6 +53,12 @@ export class EmployeeApplyPage implements OnInit {
     this.postdata.what_can_he_do = form.value.for_hotel;
     this.postdata.quries = form.value.queries;
     this.http.post('http://127.0.0.1:8000/JobApplied/', this.postdata).subscribe( (data) => {
+      console.log(data);
+    });
+    var pacth = {
+      eyee_no_appiled: ++this.eyee_no_appiled,
+    }
+    this.http.patch(`http://127.0.0.1:8000/EmployeeDetails/${this.postdata.eyee_id}/`, pacth).subscribe( (data) => {
       console.log(data);
     });
   }

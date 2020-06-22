@@ -47,8 +47,8 @@
                   </ion-card-subtitle>
                 </ion-col>
                 <ion-col offset="2" size="2"  >
-                  <ion-icon (click)='favourite(i) ' *ngIf = "selectedIndex[i] == null || selectedIndex[i] == 0 " name="heart-outline" size ="large"></ion-icon>
-                  <ion-icon (click)='favourite(i) ' *ngIf = "selectedIndex[i] == 1" name="heart" size ="large" ></ion-icon>
+                  <ion-icon (click)='like(result.id, i)' *ngIf='selectedIndex.includes(result.id) == false' name="heart-outline" size ="large"></ion-icon>
+                  <ion-icon (click)='dislike(result.id) ' *ngIf='selectedIndex.indexOf(result.id) !== -1' name="heart" size ="large" ></ion-icon>
                 </ion-col>
               </ion-row>
             </ion-card-header>
