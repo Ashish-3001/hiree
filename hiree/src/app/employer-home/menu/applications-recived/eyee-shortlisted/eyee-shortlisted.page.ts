@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { AuthenticationService } from 'src/app/servvices/authentication.service';
 
 @Component({
   selector: 'app-eyee-shortlisted',
@@ -12,8 +13,9 @@ export class EyeeShortlistedPage implements OnInit {
   applied_jobs: object = [{  }];
   value: object = [{  }];
   n:number;
+  eyee_no_shortlisted:any;
 
-  constructor(private acitivatedRoute: ActivatedRoute, private http: HttpClient) { }
+  constructor(private acitivatedRoute: ActivatedRoute, private http: HttpClient,private authService: AuthenticationService,) { }
 
   ngOnInit() {
     this.acitivatedRoute.paramMap.subscribe(paraMap => {
@@ -28,8 +30,9 @@ export class EyeeShortlistedPage implements OnInit {
         var k: number = 0;
         for(value.id in value) {
           var j:number =0;
-          this.http.get(`http://127.0.0.1:8000/EmployeeDetails/${value[k++].eyee_id}/`).subscribe( (data) => {
+          this.http.get(`http://127.0.0.1:8000/EmployeeDetails/${value[k++].eyee_id}/`).subscribe( (data:any) => {
             this.applied_jobs[j++] = data;
+            this.eyee_no_shortlisted = data.eyee_no_shortlisted;
           });
         }        
       });
@@ -55,11 +58,19 @@ export class EyeeShortlistedPage implements OnInit {
     this.http.patch(`http://127.0.0.1:8000/JobPost/${this.value[this.n].job_id}/`, deletedata ).subscribe( (data) =>{
       console.log(data);
     });
-    var pacth = {
-      eyee_no_shortlisted: this.value[this.n].eyee_id,
+    var pactheyee = {
+      eyee_no_shortlisted: ++this.eyee_no_shortlisted,
     }
-    this.http.patch(`http://127.0.0.1:8000/EmployeeDetails/${this.value[this.n].eyee_id}/`, pacth).subscribe( (data) => {
+    this.http.patch(`http://127.0.0.1:8000/EmployeeDetails/${this.value[this.n].eyee_id}/`, pactheyee).subscribe( (data) => {
       console.log(data);
+    });
+    this.authService.data.then( (value) => {
+      var pactheyer = {
+        eyer_job_hier: ++value.eyer_job_hier,
+      }
+      this.http.patch(`http://127.0.0.1:8000/EmployerDetails/${this.value[this.n].eyee_id}/`, pactheyer).subscribe( (data) => {
+        console.log(data);
+      });
     });
   }
 

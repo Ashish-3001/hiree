@@ -44,7 +44,7 @@
             <ion-item>
                  Requried Skills: {{ result.job_skills}}
             </ion-item>
-             <ion-button  [routerLink] = "['./', result.id]" color="success" expand="block">Apply for job</ion-button>
+             <ion-button  [routerLink] = "['./', result.id]" (click)='update(result.id)' color="success" expand="block">Apply for job</ion-button>
           </ion-card-content>
         </ion-card>
       </ion-col>

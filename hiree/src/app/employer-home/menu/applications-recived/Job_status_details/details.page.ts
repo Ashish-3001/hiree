@@ -49,6 +49,14 @@ export class DetailsPage implements OnInit {
     this.http.patch(`http://127.0.0.1:8000/JobPost/${this.eyer_id}/`, data ).subscribe( (data) =>{
       console.log(data);
     });
+    this.authService.data.then((value) => {
+      var pactheyer = {
+        eyer_active_job_post: --value.eyer_active_job_post,
+      }
+      this.http.patch(`http://127.0.0.1:8000/EmployerDetails/${value.id}/`, pactheyer).subscribe( (data) => {
+        console.log(data);
+      });
+    });
   }
 
 }

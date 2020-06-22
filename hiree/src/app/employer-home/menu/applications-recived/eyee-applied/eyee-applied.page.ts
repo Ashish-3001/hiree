@@ -12,6 +12,7 @@ export class EyeeAppliedPage implements OnInit {
   applied_jobs: object = [{  }];
   value: object = [{  }];
   n:number;
+  eyee_no_accept:any;
 
   constructor(private acitivatedRoute: ActivatedRoute, private http: HttpClient) 
   { }
@@ -29,8 +30,9 @@ export class EyeeAppliedPage implements OnInit {
         var k: number = 0;
         for(value.id in value) {
           var j:number =0;
-          this.http.get(`http://127.0.0.1:8000/EmployeeDetails/${value[k++].eyee_id}/`).subscribe( (data) => {
+          this.http.get(`http://127.0.0.1:8000/EmployeeDetails/${value[k++].eyee_id}/`).subscribe( (data:any) => {
             this.applied_jobs[j++] = data;
+            this.eyee_no_accept = data.eyee_no_accept;
           });
         }        
       });
@@ -54,7 +56,7 @@ export class EyeeAppliedPage implements OnInit {
       short_list_type_id: this.value[this.n].id,
     }
     var pacth = {
-      eyee_no_accept: this.value[this.n].eyee_id,
+      eyee_no_accept: ++this.eyee_no_accept,
     }
     this.http.patch(`http://127.0.0.1:8000/JobApplied/${this.value[this.n].id}/`, data ).subscribe( (data) =>{
       console.log(data);

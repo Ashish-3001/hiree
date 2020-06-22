@@ -23,6 +23,7 @@ export class EmployeeApplyPage implements OnInit {
     quries: "",
   }
   eyee_no_appiled:any;
+  job_no_emplyee_appilied:any;
 
   constructor(
     private acitivatedRoute: ActivatedRoute, 
@@ -39,6 +40,7 @@ export class EmployeeApplyPage implements OnInit {
         this.postdata.eyer_id = data.eyer_id;
         this.postdata.eyer_name = data.eyer_name;
         this.postdata.job_post = data.job_post;
+        this.job_no_emplyee_appilied = data.job_no_emplyee_appilied;
       });
       this.authService.data.then((value) => {
         this.postdata.eyee_id = value.id;
@@ -55,10 +57,16 @@ export class EmployeeApplyPage implements OnInit {
     this.http.post('http://127.0.0.1:8000/JobApplied/', this.postdata).subscribe( (data) => {
       console.log(data);
     });
-    var pacth = {
+    var pactheyee = {
       eyee_no_appiled: ++this.eyee_no_appiled,
     }
-    this.http.patch(`http://127.0.0.1:8000/EmployeeDetails/${this.postdata.eyee_id}/`, pacth).subscribe( (data) => {
+    this.http.patch(`http://127.0.0.1:8000/EmployeeDetails/${this.postdata.eyee_id}/`, pactheyee).subscribe( (data) => {
+      console.log(data);
+    });
+    var pacthjob = {
+      job_no_emplyee_appilied: ++this.job_no_emplyee_appilied,
+    }
+    this.http.patch(`http://127.0.0.1:8000/JobPost/${this.postdata.job_id}/`, pacthjob).subscribe( (data) => {
       console.log(data);
     });
   }
