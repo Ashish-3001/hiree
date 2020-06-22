@@ -38,25 +38,6 @@ export class FolderPage implements OnInit {
     this.get.job_post_state.subscribe( (number) => {
       this.active_job_post_no = number;
     });
-    this.authService.data.then((value:any) => {
-      this.eyer_details = value;
-      this.http.get(`http://127.0.0.1:8000/EmployerDetailsFav/?eyer_id=${this.eyer_details.id}`).subscribe( (data:any) => {
-        this.fav = data;
-        for(var i=0; i>=0;i++) {
-          if(this.fav[i].eyee_id) {
-            if(this.fav[i].unliked == false) {
-              this.selectedIndex.push(this.fav[i].eyee_id);
-            }
-            this.k++;
-            console.log(this.k);
-          }
-          else {
-            break;
-          }
-        }
-      });
-    });
-    
   }
 
   state() {
@@ -117,5 +98,24 @@ export class FolderPage implements OnInit {
   ionViewWillEnter() {
     this.menuCtrl.enable(true);
     this.results = this.get.results_eyee_details;
+
+    this.authService.data.then((value:any) => {
+      this.eyer_details = value;
+      this.http.get(`http://127.0.0.1:8000/EmployerDetailsFav/?eyer_id=${this.eyer_details.id}`).subscribe( (data:any) => {
+        this.fav = data;
+        for(var i=0; i>=0;i++) {
+          if(this.fav[i].eyee_id) {
+            if(this.fav[i].unliked == false) {
+              this.selectedIndex.push(this.fav[i].eyee_id);
+            }
+            this.k++;
+            console.log(this.k);
+          }
+          else {
+            break;
+          }
+        }
+      });
+    });
   }
 }

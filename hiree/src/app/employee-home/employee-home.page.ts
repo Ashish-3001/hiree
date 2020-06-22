@@ -30,24 +30,6 @@ export class EmployeeHomePage implements OnInit {
   ngOnInit() {
     this.get.get_job_post();
 
-    this.authService.data.then((value:any) => {
-      this.eyee_details = value;
-      this.http.get(`http://127.0.0.1:8000/EmployeeDetailsFav/?eyee_id=${this.eyee_details.id}&unliked=`).subscribe( (data:any) => {
-        this.fav = data;
-        for(var i=0; i>=0;i++) {
-          if(this.fav[i].job_id) {
-            if(this.fav[i].unliked == false) {
-              this.selectedIndex.push(this.fav[i].job_id);
-            }
-            this.k++;
-            console.log(this.k);
-          }
-          else {
-            break;
-          }
-        }
-      });
-    });
   }
 
   like(f, a) {
@@ -113,7 +95,31 @@ export class EmployeeHomePage implements OnInit {
   }
 
   ionViewWillEnter() {
-    this.menuCtrl.enable(true);
+    this.menuCtrl.enable(true); 
+
+  }
+
+  ionViewDidEnter() {
     this.results_job = this.get.results_job_post;
+    
+    this.authService.data.then((value:any) => {
+      this.eyee_details = value;
+      console.log(value);
+      this.http.get(`http://127.0.0.1:8000/EmployeeDetailsFav/?eyee_id=${this.eyee_details.id}&unliked=`).subscribe( (data:any) => {
+        this.fav = data;
+        for(var i=0; i>=0;i++) {
+          if(this.fav[i].job_id) {
+            if(this.fav[i].unliked == false) {
+              this.selectedIndex.push(this.fav[i].job_id);
+            }
+            this.k++;
+            console.log(this.k);
+          }
+          else {
+            break;
+          }
+        }
+      });
+    });
   }
 }
