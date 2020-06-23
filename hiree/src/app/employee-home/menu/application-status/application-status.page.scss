@@ -3,3 +3,8 @@
     font-size: 40px;
     font-style: initial;  
   }
+
+.horizontal-scroll {
+  overflow: auto;
+  white-space: nowrap;
+}

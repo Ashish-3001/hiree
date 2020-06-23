@@ -11,5 +11,359 @@
 </ion-header>
 
 <ion-content>
+  <div class="horizontal-scroll">
+    <ion-chip (click)='state("Offers Recived")'>
+      <ion-label>Offers Recived</ion-label>
+    </ion-chip>
+    <ion-chip (click)='state("Shortlisted")'>
+      <ion-label>Shortlisted</ion-label>
+    </ion-chip>
+    <ion-chip (click)='state("Applied Jobs")'>
+      <ion-label>Applied Jobs</ion-label>
+    </ion-chip>
+  </div>
 
+  <div *ngIf='this.page_state == "Offers Recived"'>
+    <ion-grid>
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
+          <ion-card *ngFor = " let result of this.jobs_offered; let i = index" >
+            <div *ngIf= "!job_post_toggle">
+              <ion-card-header color="light">
+                <ion-row>
+                  <ion-col size="8">
+                    <ion-card-title>
+                      {{ result.job_post }}
+                    </ion-card-title>
+                    <ion-card-subtitle >
+                    {{ result.eyer_name }}<br>
+                    Location : {{ result.eyer_location }}
+                    </ion-card-subtitle>
+                  </ion-col>
+                </ion-row>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-item>
+                    Monthly Salary:<B> {{ result.job_salary }} </B>
+                </ion-item>
+                <ion-item>
+                    Requried Experince: {{ result.job_experience }} 
+                </ion-item>
+                <ion-item>
+                    Requried Employment: {{ result.job_employment }}
+                </ion-item>
+                <ion-item>
+                    Requried Skills: {{ result.job_skills}}
+                </ion-item>
+                <ion-button (click) = "state1(i)" color="success" expand="block">Read More</ion-button>
+              </ion-card-content>
+            </div>
+          </ion-card>
+          <div *ngIf= "job_post_toggle">
+            <ion-card-header color="light">
+              <ion-card-title>
+                {{ jobs_offered[n].job_post }}
+              </ion-card-title>
+              <ion-card-subtitle >
+               {{ jobs_offered[n].eyer_name }}            
+              </ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content >
+              <ion-row>
+                <ion-col>
+                  <div class="head">Salary:</div>
+                  <div class="body">{{ jobs_offered[n].job_salary }}</div>
+                </ion-col>
+                <ion-col>
+                  <div class="head">Minimum Education :</div>
+                  <div class="body">{{ jobs_offered[n].job_education }}</div>
+                </ion-col>
+                <ion-col>
+                  <div class="head">Required Experience :</div>
+                  <div class="body">{{ jobs_offered[n].job_experience}}</div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <div class="head">Employment:</div>
+                  <div class="body">{{ jobs_offered[n].job_employment }}</div>
+                </ion-col>
+                <ion-col>
+                  <div class="head">Working Days:</div>
+                  <div class="body">{{ jobs_offered[n].job_working_days }}</div>
+                </ion-col>
+                <ion-col>
+                  <div class="head">Working Shifts:</div>
+                  <div class="body">{{ jobs_offered[n].job_working_shifts }}</div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <div class="ques">job Description:</div>
+                  <div class="ans">{{ jobs_offered[n].job_discription }}</div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <div class="ques">Skills:</div>
+                  <div class="ans">{{ jobs_offered[n].job_skills }}</div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <div class="ques">Job Posted By:</div>
+                  <div class="ans">{{ jobs_offered[n].job_posted_by }}</div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <div class="ques">{{ jobs_offered[n].job_posted_by }}'s Designation:</div>
+                  <div class="ans">{{ jobs_offered[n].job_posted_designation }}</div>
+                </ion-col>
+              </ion-row>    
+              <ion-row>
+                <ion-col>
+                  <div class="ques">Perks and Benefits:</div>
+                  <div class="ans">{{ jobs_offered[n].job_benefits }}</div>
+                </ion-col>
+              </ion-row>  
+           </ion-card-content>
+           <ion-card-content>
+            <ion-button  color="danger" (click) = "reject() || state1(0)" >Reject</ion-button>
+            <ion-button  color="success" (click) = "accept() || state1(0) || ngOnInit()">Accept</ion-button>
+            <ion-button  color="primary" expand="block" (click) = "state1(0)">Back To List</ion-button>
+          </ion-card-content>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div *ngIf='this.page_state == "Applied Jobs"'>
+    <ion-grid>
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
+          <ion-card *ngFor = " let result of this.applied_jobs; let i = index" >
+            <div *ngIf= "!job_post_toggle">
+              <ion-card-header color="light">
+                <ion-row>
+                  <ion-col size="8">
+                    <ion-card-title>
+                      {{ result.job_post }}
+                    </ion-card-title>
+                    <ion-card-subtitle >
+                    {{ result.eyer_name }}<br>
+                    Location : {{ result.eyer_location }}
+                    </ion-card-subtitle>
+                  </ion-col>
+                </ion-row>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-item>
+                    Monthly Salary:<B> {{ result.job_salary }} </B>
+                </ion-item>
+                <ion-item>
+                    Requried Experince: {{ result.job_experience }} 
+                </ion-item>
+                <ion-item>
+                    Requried Employment: {{ result.job_employment }}
+                </ion-item>
+                <ion-item>
+                    Requried Skills: {{ result.job_skills}}
+                </ion-item>
+                <ion-button (click) = "state1(i)" color="success" expand="block">Read More</ion-button>
+              </ion-card-content>
+            </div>
+          </ion-card>
+          <div *ngIf= "job_post_toggle">
+            <ion-card-header color="light">
+              <ion-card-title>
+                {{ applied_jobs[n].job_post }}
+              </ion-card-title>
+              <ion-card-subtitle >
+               {{ applied_jobs[n].eyer_name }}            
+              </ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content >
+              <ion-row>
+                <ion-col>
+                  <div class="head">Salary:</div>
+                  <div class="body">{{ applied_jobs[n].job_salary }}</div>
+                </ion-col>
+                <ion-col>
+                  <div class="head">Minimum Education :</div>
+                  <div class="body">{{ applied_jobs[n].job_education }}</div>
+                </ion-col>
+                <ion-col>
+                  <div class="head">Required Experience :</div>
+                  <div class="body">{{ applied_jobs[n].job_experience}}</div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <div class="head">Employment:</div>
+                  <div class="body">{{ applied_jobs[n].job_employment }}</div>
+                </ion-col>
+                <ion-col>
+                  <div class="head">Working Days:</div>
+                  <div class="body">{{ applied_jobs[n].job_working_days }}</div>
+                </ion-col>
+                <ion-col>
+                  <div class="head">Working Shifts:</div>
+                  <div class="body">{{ applied_jobs[n].job_working_shifts }}</div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <div class="ques">job Description:</div>
+                  <div class="ans">{{ applied_jobs[n].job_discription }}</div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <div class="ques">Skills:</div>
+                  <div class="ans">{{ applied_jobs[n].job_skills }}</div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <div class="ques">Job Posted By:</div>
+                  <div class="ans">{{ applied_jobs[n].job_posted_by }}</div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <div class="ques">{{ applied_jobs[n].job_posted_by }}'s Designation:</div>
+                  <div class="ans">{{ applied_jobs[n].job_posted_designation }}</div>
+                </ion-col>
+              </ion-row>    
+              <ion-row>
+                <ion-col>
+                  <div class="ques">Perks and Benefits:</div>
+                  <div class="ans">{{ applied_jobs[n].job_benefits }}</div>
+                </ion-col>
+              </ion-row>  
+           </ion-card-content>
+           <ion-card-content>
+            <ion-button  color="primary" expand="block" (click) = "state1(0)">Back To List</ion-button>
+          </ion-card-content>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div *ngIf='this.page_state == "Shortlisted"'>
+    <ion-grid>
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
+          <ion-card *ngFor = " let result of this.shortlisted; let i = index" >
+            <div *ngIf= "!job_post_toggle">
+              <ion-card-header color="light">
+                <ion-row>
+                  <ion-col size="8">
+                    <ion-card-title>
+                      {{ result.job_post }}
+                    </ion-card-title>
+                    <ion-card-subtitle >
+                    {{ result.eyer_name }}<br>
+                    Location : {{ result.eyer_location }}
+                    </ion-card-subtitle>
+                  </ion-col>
+                </ion-row>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-item>
+                    Monthly Salary:<B> {{ result.job_salary }} </B>
+                </ion-item>
+                <ion-item>
+                    Requried Experince: {{ result.job_experience }} 
+                </ion-item>
+                <ion-item>
+                    Requried Employment: {{ result.job_employment }}
+                </ion-item>
+                <ion-item>
+                    Requried Skills: {{ result.job_skills}}
+                </ion-item>
+                <ion-button (click) = "state1(i)" color="success" expand="block">Read More</ion-button>
+              </ion-card-content>
+            </div>
+          </ion-card>
+          <div *ngIf= "job_post_toggle">
+            <ion-card-header color="light">
+              <ion-card-title>
+                {{ shortlisted[n].job_post }}
+              </ion-card-title>
+              <ion-card-subtitle >
+               {{ shortlisted[n].eyer_name }}            
+              </ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content >
+              <ion-row>
+                <ion-col>
+                  <div class="head">Salary:</div>
+                  <div class="body">{{ shortlisted[n].job_salary }}</div>
+                </ion-col>
+                <ion-col>
+                  <div class="head">Minimum Education :</div>
+                  <div class="body">{{ shortlisted[n].job_education }}</div>
+                </ion-col>
+                <ion-col>
+                  <div class="head">Required Experience :</div>
+                  <div class="body">{{ shortlisted[n].job_experience}}</div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <div class="head">Employment:</div>
+                  <div class="body">{{ shortlisted[n].job_employment }}</div>
+                </ion-col>
+                <ion-col>
+                  <div class="head">Working Days:</div>
+                  <div class="body">{{ shortlisted[n].job_working_days }}</div>
+                </ion-col>
+                <ion-col>
+                  <div class="head">Working Shifts:</div>
+                  <div class="body">{{ shortlisted[n].job_working_shifts }}</div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <div class="ques">job Description:</div>
+                  <div class="ans">{{ shortlisted[n].job_discription }}</div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <div class="ques">Skills:</div>
+                  <div class="ans">{{ shortlisted[n].job_skills }}</div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <div class="ques">Job Posted By:</div>
+                  <div class="ans">{{ shortlisted[n].job_posted_by }}</div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <div class="ques">{{ shortlisted[n].job_posted_by }}'s Designation:</div>
+                  <div class="ans">{{ shortlisted[n].job_posted_designation }}</div>
+                </ion-col>
+              </ion-row>    
+              <ion-row>
+                <ion-col>
+                  <div class="ques">Perks and Benefits:</div>
+                  <div class="ans">{{ shortlisted[n].job_benefits }}</div>
+                </ion-col>
+              </ion-row>  
+           </ion-card-content>
+           <ion-card-content>
+            <ion-button  color="primary" expand="block" (click) = "state1(0)">Back To List</ion-button>
+          </ion-card-content>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>
