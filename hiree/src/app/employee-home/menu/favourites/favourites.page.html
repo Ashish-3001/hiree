@@ -23,7 +23,7 @@
                 </ion-card-title>
                 <ion-card-subtitle >
                 {{ result.eyer_name }}<br>
-                Location : {{ result.eyer_location }}
+                
                 </ion-card-subtitle>
               </ion-col>
               <ion-col offset="2" size="2"  >
@@ -33,16 +33,16 @@
           </ion-card-header>
           <ion-card-content>
             <ion-item>
-                Monthly Salary:<B> {{ result.job_salary }} </B>
+                Monthly Salary:<b> {{ result.job_salary }} </b>
             </ion-item>
             <ion-item>
-                Requried Experince: {{ result.job_experience }} 
+                Requried Experince: <b>{{ result.job_experience }} </b>
             </ion-item>
             <ion-item>
-                 Requried Employment: {{ result.job_employement }}
+                 Requried Employment: <b>{{ result.job_employement }}</b>
             </ion-item>
             <ion-item>
-                 Requried Skills: {{ result.job_skills}}
+                 Requried Skills:<b>{{ result.job_skills}}</b> 
             </ion-item>
              <ion-button  [routerLink] = "['./', result.id]" color="success" expand="block">Apply for job</ion-button>
           </ion-card-content>

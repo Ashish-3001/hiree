@@ -6,19 +6,19 @@
     <ion-buttons slot="start" class="ion-padding">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>application-status</ion-title>
+    
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="horizontal-scroll">
-    <ion-chip (click)='state("Offers Recived")'>
-      <ion-label>Offers Recived</ion-label>
+    <ion-chip color="success"(click)='state("Offers Recived")'>
+      <ion-label>Offers Recieved</ion-label>
     </ion-chip>
-    <ion-chip (click)='state("Shortlisted")'>
+    <ion-chip color="warning" (click)='state("Shortlisted")'>
       <ion-label>Shortlisted</ion-label>
     </ion-chip>
-    <ion-chip (click)='state("Applied Jobs")'>
+    <ion-chip color="secondary" (click)='state("Applied Jobs")'>
       <ion-label>Applied Jobs</ion-label>
     </ion-chip>
   </div>
@@ -37,7 +37,6 @@
                     </ion-card-title>
                     <ion-card-subtitle >
                     {{ result.eyer_name }}<br>
-                    Location : {{ result.eyer_location }}
                     </ion-card-subtitle>
                   </ion-col>
                 </ion-row>
@@ -47,13 +46,13 @@
                     Monthly Salary:<B> {{ result.job_salary }} </B>
                 </ion-item>
                 <ion-item>
-                    Requried Experince: {{ result.job_experience }} 
+                    Requried Experince:  <b>{{ result.job_experience }}</b>
                 </ion-item>
                 <ion-item>
-                    Requried Employment: {{ result.job_employment }}
+                    Requried Employment: <b>{{ result.job_employment }}</b>
                 </ion-item>
                 <ion-item>
-                    Requried Skills: {{ result.job_skills}}
+                    Requried Skills:<b> {{ result.job_skills}}</b>
                 </ion-item>
                 <ion-button (click) = "state1(i)" color="success" expand="block">Read More</ion-button>
               </ion-card-content>
@@ -75,11 +74,11 @@
                   <div class="body">{{ jobs_offered[n].job_salary }}</div>
                 </ion-col>
                 <ion-col>
-                  <div class="head">Minimum Education :</div>
+                  <div class="head">Minimum Education:</div>
                   <div class="body">{{ jobs_offered[n].job_education }}</div>
                 </ion-col>
                 <ion-col>
-                  <div class="head">Required Experience :</div>
+                  <div class="head">Required Experience:</div>
                   <div class="body">{{ jobs_offered[n].job_experience}}</div>
                 </ion-col>
               </ion-row>
@@ -129,9 +128,21 @@
               </ion-row>  
            </ion-card-content>
            <ion-card-content>
-            <ion-button  color="danger" (click) = "reject() || state1(0)" >Reject</ion-button>
-            <ion-button  color="success" (click) = "accept() || state1(0) || ngOnInit()">Accept</ion-button>
-            <ion-button  color="primary" expand="block" (click) = "state1(0)">Back To List</ion-button>
+             <ion-grid>
+               <ion-row>
+                 <ion-col>
+                  <ion-button  color="primary" expand="block" (click) = "state1(0)">Back To List</ion-button>
+                 </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-button expand="block" color="danger" (click) = "reject() || state1(0)" >Reject</ion-button>
+                  </ion-col>
+                  <ion-col>
+                    <ion-button expand="block" color="success" (click) = "accept() || state1(0) || ngOnInit()">Accept</ion-button>
+                  </ion-col>
+                </ion-row>
+             </ion-grid>         
           </ion-card-content>
           </div>
         </ion-col>
@@ -160,16 +171,16 @@
               </ion-card-header>
               <ion-card-content>
                 <ion-item>
-                    Monthly Salary:<B> {{ result.job_salary }} </B>
+                    Monthly Salary:<b> {{ result.job_salary }} </b>
                 </ion-item>
                 <ion-item>
-                    Requried Experince: {{ result.job_experience }} 
+                    Requried Experince:<b>{{ result.job_experience }} </b> 
                 </ion-item>
                 <ion-item>
-                    Requried Employment: {{ result.job_employment }}
+                    Requried Employment: <b>{{ result.job_employment }}</b>
                 </ion-item>
                 <ion-item>
-                    Requried Skills: {{ result.job_skills}}
+                    Requried Skills:<b>{{ result.job_skills}}</b> 
                 </ion-item>
                 <ion-button (click) = "state1(i)" color="success" expand="block">Read More</ion-button>
               </ion-card-content>
@@ -191,11 +202,11 @@
                   <div class="body">{{ applied_jobs[n].job_salary }}</div>
                 </ion-col>
                 <ion-col>
-                  <div class="head">Minimum Education :</div>
+                  <div class="head">Minimum Education:</div>
                   <div class="body">{{ applied_jobs[n].job_education }}</div>
                 </ion-col>
                 <ion-col>
-                  <div class="head">Required Experience :</div>
+                  <div class="head">Required Experience:</div>
                   <div class="body">{{ applied_jobs[n].job_experience}}</div>
                 </ion-col>
               </ion-row>
@@ -267,7 +278,7 @@
                     </ion-card-title>
                     <ion-card-subtitle >
                     {{ result.eyer_name }}<br>
-                    Location : {{ result.eyer_location }}
+                    
                     </ion-card-subtitle>
                   </ion-col>
                 </ion-row>
@@ -277,13 +288,13 @@
                     Monthly Salary:<B> {{ result.job_salary }} </B>
                 </ion-item>
                 <ion-item>
-                    Requried Experince: {{ result.job_experience }} 
+                    Requried Experince:<b> {{ result.job_experience }} </b>
                 </ion-item>
                 <ion-item>
-                    Requried Employment: {{ result.job_employment }}
+                    Requried Employment:<b> {{ result.job_employment }}</b>
                 </ion-item>
                 <ion-item>
-                    Requried Skills: {{ result.job_skills}}
+                    Requried Skills:<b> {{ result.job_skills}}</b>
                 </ion-item>
                 <ion-button (click) = "state1(i)" color="success" expand="block">Read More</ion-button>
               </ion-card-content>
@@ -305,11 +316,11 @@
                   <div class="body">{{ shortlisted[n].job_salary }}</div>
                 </ion-col>
                 <ion-col>
-                  <div class="head">Minimum Education :</div>
+                  <div class="head">Minimum Education:</div>
                   <div class="body">{{ shortlisted[n].job_education }}</div>
                 </ion-col>
                 <ion-col>
-                  <div class="head">Required Experience :</div>
+                  <div class="head">Required Experience:</div>
                   <div class="body">{{ shortlisted[n].job_experience}}</div>
                 </ion-col>
               </ion-row>
