@@ -17,7 +17,7 @@
                 {{ result.eyee_name }}
               </ion-card-title>
               <ion-card-subtitle >
-                Location : {{ result.eyee_city }}
+                Phone Number: {{ result.eyee_phone }}
               </ion-card-subtitle>
             </ion-card-header>
             <ion-card-content >
@@ -31,51 +31,88 @@
               Skills : {{ result.eyee_add_skills }}
               </ion-item>
             </ion-card-content>
+
             <ion-card-content>
               <ion-button  color="primary" expand="block" (click) = "state(i)">Read More</ion-button>
             </ion-card-content>
           </div>
         </ion-card>
         <div *ngIf= "job_post_toggle">
+          <ion-card>
           <ion-card-header color="light">
             <ion-card-title>
               {{ applied_jobs[n].eyee_name }}
             </ion-card-title>
             <ion-card-subtitle >
-             Location : {{ applied_jobs[n].eyee_city }}
+             Phone Number : {{ applied_jobs[n].eyee_phone }}
             </ion-card-subtitle>
           </ion-card-header>
           <ion-card-content >
-            <ion-item>
-              Previous Experience : {{ applied_jobs[n].eyee_pre_experience }}
-             </ion-item>
-             <ion-item >
-              Previous place of Work : {{ applied_jobs[n].eyee_place_pre_experience }}
-             </ion-item>
-             <ion-item >
-              Minimum Education : {{ applied_jobs[n].eyee_education }}
-             </ion-item>
-             <ion-item >
-              Job Preference : {{ applied_jobs[n].choice }}
-             </ion-item>
-             <ion-item >
-              Time of Work : {{ applied_jobs[n].eyee_time }}
-             </ion-item>
-             <ion-item >
-              Age : {{ applied_jobs[n].eyee_age }}
-             </ion-item>
-             <ion-item >
-              Gender : {{ applied_jobs[n].eyee_gender }}
-             </ion-item>
-             <ion-item >
-              Additional Skills : {{ applied_jobs[n].eyee_add_skills}}
-             </ion-item>
-          </ion-card-content>
+            <ion-grid>
+            <ion-row>
+              <ion-col>
+                <div class="head">Previous Experience: </div>
+                <div class="body">{{ applied_jobs[n].eyee_pre_experience }}</div>
+              </ion-col>
+              <ion-col>
+                <div class="head">Minimum Education:</div>
+                <div class="body">{{ applied_jobs[n].eyee_education }}</div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <div class="head">Job Preference: </div>
+                <div class="body">{{ applied_jobs[n].choice }}</div>
+              </ion-col>
+              <ion-col>
+                <div class="head">Time of Work:</div>
+                <div class="body">{{ applied_jobs[n].eyee_time }}</div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <div class="ques">Age: </div>
+                <div class="ans">{{ applied_jobs[n].eyee_age }}</div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <div class="ques">Gender:</div>
+                <div class="ans"> {{ applied_jobs[n].eyee_gender }}</div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <div class="ques">Skills:</div>
+                <div class="ans">{{ applied_jobs[n].eyee_add_skills}}</div>
+              </ion-col>
+            </ion-row>
+            </ion-grid>
+           
+         </ion-card-content>
+        </ion-card>
+        <ion-card>
           <ion-card-content>
-            <ion-button  color="danger" (click) = "reject()" [routerLink] = "['/employer-profile/employer-home/menu/apllication-status/', this.value[this.n].job_id]" >Reject</ion-button>
-            <ion-button  color="success" (click) = "accept()" [routerLink] = "['/employer-profile/employer-home/menu/apllication-status/', this.value[this.n].job_id]" >Accept</ion-button>
-            <ion-button  color="primary" expand="block" (click) = "state(0)">Back To List</ion-button>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-button  color="warning" expand="block" (click) = "state(0)">Back</ion-button>
+                </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-button  color="success" expand="block" (click) = "accept()" [routerLink] = "['/employer-profile/employer-home/menu/apllication-status/', this.value[this.n].job_id]" >Accept</ion-button>
+                  </ion-col>
+                <ion-col>
+                  <ion-button  color="danger" expand="block" (click) = "reject()" [routerLink] = "['/employer-profile/employer-home/menu/apllication-status/', this.value[this.n].job_id]" >Reject</ion-button>
+                </ion-col>
+                
+              </ion-row>
+            </ion-grid>
+           
           </ion-card-content>
+        </ion-card>
+         
         </div>
       </ion-col>
     </ion-row>

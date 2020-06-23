@@ -107,6 +107,7 @@ export class FolderPage implements OnInit {
           if(this.fav[i].eyee_id) {
             if(this.fav[i].unliked == false) {
               this.selectedIndex.push(this.fav[i].eyee_id);
+              console.log(this.selectedIndex);
             }
             this.k++;
             console.log(this.k);
