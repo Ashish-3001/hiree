@@ -49,7 +49,7 @@
                     </ion-col>
             <ion-col offset-4>
               <ion-text color="danger">
-                <h2>Jobs Liked:</h2>
+                <h2>Jobs Offered:</h2>
               </ion-text>
              </ion-col>
 
@@ -66,7 +66,7 @@
               <ion-col offset-4 class="ion-margin">
                 <div  class="ion-text-center">
                   <ion-text color="success">
-                     <H1>{{ details.eyee_no_post_liked}}</H1> 
+                     <H1>{{ details.eyee_no_offered}}</H1> 
                  </ion-text> 
                </div>
                </ion-col>
@@ -94,7 +94,7 @@
                   </ion-col>
                   <ion-col offset-4>
                     <ion-text color="danger">
-                      <h2>Jobs Rejected:</h2>
+                      <h2>Jobs Short-Listed:</h2>
                     </ion-text>
                    </ion-col>
       
@@ -111,7 +111,7 @@
                     <ion-col offset-4 class="ion-margin">
                       <div  class="ion-text-center">
                         <ion-text color="success">
-                           <H1>{{ details.eyee_no_rejected}}</H1> 
+                           <H1>{{ details.eyee_no_shortlisted}}</H1> 
                        </ion-text> 
                      </div>
                      </ion-col>
@@ -177,14 +177,14 @@
             <ion-label>Jobs Applied: {{ details.eyee_no_appiled}} </ion-label>
           </ion-chip>
           <ion-chip color="secondary">
-            <ion-label>Jobs Liked: {{ details.eyee_no_post_liked}} </ion-label>
+            <ion-label>Jobs Offered: {{ details.eyee_no_offered}} </ion-label>
+          </ion-chip>
+          <ion-chip color="warning">
+            <ion-label>Jobs Short-Listed: {{ details.eyee_no_shortlisted}} </ion-label>
           </ion-chip>
           <ion-chip color="success">
             <ion-label>Jobs Accepted: {{ details.eyee_no_accept}} </ion-label>
-          </ion-chip>
-          <ion-chip color="danger">
-            <ion-label>Jobs Rejected: {{ details.eyee_no_rejected}} </ion-label>
-          </ion-chip>
+          </ion-chip>          
         </p>
         
           <ion-button fill="outline"

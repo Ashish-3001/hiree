@@ -5,6 +5,7 @@ import { GetService } from '../servvices/get.service';
 import { AuthenticationService } from '../servvices/authentication.service';
 import { AppComponent } from '../app.component';
 import { Storage } from '@ionic/storage';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -47,4 +48,6 @@ export class LoginPage implements OnInit {
     this.menu.ngOnInit();
     console.log(this.menu.state);
   }
+  
 }
+ 

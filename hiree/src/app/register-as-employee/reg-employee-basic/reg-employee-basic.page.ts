@@ -8,8 +8,6 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./reg-employee-basic.page.scss'],
 })
 export class RegEmployeeBasicPage implements OnInit {
-
-  
   constructor(private postdata: PostService) { }
 
   ngOnInit() {
