@@ -21,15 +21,15 @@
           Searching for: 
         </ion-button>
         <div *ngIf= "job_post_toggle">
-          <ion-button *ngIf='this.active_job_post_name[0]' (click) = "this.get.job_post_state.next('0') || state()" >
-            {{ this.active_job_post_name[0] }}
-          </ion-button>
-          <ion-button *ngIf='this.active_job_post_name[1]' (click) = "this.get.job_post_state.next('1') || state()" >
+          <ion-chip class='hi' *ngIf='this.active_job_post_name[0] ' (click) = "this.get.job_post_state.next('0') || state()">
+            {{ this.active_job_post_name[0] }}                 
+          </ion-chip>
+          <ion-chip class='nhi' *ngIf='this.active_job_post_name[1]' (click) = "this.get.job_post_state.next('1') || state()">
             {{ this.active_job_post_name[1] }} 
-          </ion-button>
-          <ion-button *ngIf='this.active_job_post_name[2]' (click) = "this.get.job_post_state.next('2') || state()">
-            {{ this.active_job_post_name[2] }} 
-          </ion-button>
+          </ion-chip>                
+          <ion-chip class="nhi" color="success" *ngIf='this.active_job_post_name[2]' (click) = "this.get.job_post_state.next('2') || state()">
+            {{ this.active_job_post_name[2] }}                   
+          </ion-chip>               
         </div>
       </ion-col>
     </ion-row>
@@ -69,6 +69,7 @@
           <ion-card-content>
             <ion-button  [routerLink] = "['./', result.id]" color="success" expand="block">Offer job</ion-button>
           </ion-card-content>
+
         </ion-card>
       </ion-col>
     </ion-row>
