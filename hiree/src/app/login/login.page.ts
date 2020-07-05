@@ -5,11 +5,8 @@ import { GetService } from '../servvices/get.service';
 import { AuthenticationService } from '../servvices/authentication.service';
 import { AppComponent } from '../app.component';
 import { Storage } from '@ionic/storage';
-<<<<<<< HEAD
 import { EmployeeHomePage } from '../employee-home/employee-home.page';
-=======
 import { NgForm } from '@angular/forms';
->>>>>>> b5d8867fa4db450eb79ad681a2c653faf9626411
 
 
 @Component({
@@ -52,13 +49,10 @@ export class LoginPage implements OnInit {
     this.menu.ngOnInit();
     console.log(this.menu.state);
   }
-<<<<<<< HEAD
 
   ionViewDidLeave() {
     
   }
-=======
-  
->>>>>>> b5d8867fa4db450eb79ad681a2c653faf9626411
 }
+
  
