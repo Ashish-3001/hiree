@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage'
 import { FolderPage } from './employer-home/employer-home.page';
+import { EmployeeHomePage } from './employee-home/employee-home.page';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { FolderPage } from './employer-home/employer-home.page';
     StatusBar,
     SplashScreen,
     AppComponent,
+    EmployeeHomePage,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

@@ -5,6 +5,7 @@ import { GetService } from '../servvices/get.service';
 import { AuthenticationService } from '../servvices/authentication.service';
 import { AppComponent } from '../app.component';
 import { Storage } from '@ionic/storage';
+import { EmployeeHomePage } from '../employee-home/employee-home.page';
 
 
 @Component({
@@ -27,7 +28,7 @@ export class LoginPage implements OnInit {
      private storage: Storage,
      private authService: AuthenticationService,
      private menu: AppComponent,
-     ) { 
+     private eyee: EmployeeHomePage) { 
  
   }
 
@@ -46,5 +47,9 @@ export class LoginPage implements OnInit {
   ionViewWillLeave() {
     this.menu.ngOnInit();
     console.log(this.menu.state);
+  }
+
+  ionViewDidLeave() {
+    
   }
 }

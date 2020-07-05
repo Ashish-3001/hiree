@@ -5,6 +5,7 @@ import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { HttpClient } from '@angular/common/http';
+import { GetService } from './get.service';
 
 const TOKEN_KEY = 'auth-token';
 const DATA_KEY = 'n';
@@ -19,7 +20,8 @@ export class AuthenticationService {
     private storage: Storage,
     private platform: Platform,
     private router: Router,
-    private http:HttpClient,)
+    private http:HttpClient,
+    )
   {
     this.platform.ready().then(() => {
       this.check();

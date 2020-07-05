@@ -19,9 +19,10 @@ export class FolderPage implements OnInit {
   
   k:number =0;
   fav: object = [{ }];
-  active_job_post_no:number;
+  active_job_post:any;
+  active_job_post_name:any =[];
   eyer_details:any;
-  results: object = [{ }];
+  results: any;
 
   constructor(private activatedRoute: ActivatedRoute, 
     public menuCtrl: MenuController,
@@ -34,10 +35,7 @@ export class FolderPage implements OnInit {
   }
 
   ngOnInit() {
-    this.get.get_employee();
-    this.get.job_post_state.subscribe( (number) => {
-      this.active_job_post_no = number;
-    });
+    
   }
 
   state() {
@@ -97,25 +95,48 @@ export class FolderPage implements OnInit {
 
   ionViewWillEnter() {
     this.menuCtrl.enable(true);
-    this.results = this.get.results_eyee_details;
-
-    this.authService.data.then((value:any) => {
-      this.eyer_details = value;
-      this.http.get(`http://127.0.0.1:8000/EmployerDetailsFav/?eyer_id=${this.eyer_details.id}`).subscribe( (data:any) => {
-        this.fav = data;
-        for(var i=0; i>=0;i++) {
-          if(this.fav[i].eyee_id) {
-            if(this.fav[i].unliked == false) {
-              this.selectedIndex.push(this.fav[i].eyee_id);
+    this.get.job_post_state.subscribe( (number) => {
+      this.authService.data.then((value:any) => {
+        this.eyer_details = value;
+        this.http.get(`http://127.0.0.1:8000/JobPost/?eyer_id=${value.id}&job_active=true`).subscribe( (value:any) => {
+          for(var i=0;i<3;i++) {
+            if(value[i]) {
+              this.active_job_post_name.push(value[i].job_post) 
             }
-            this.k++;
-            console.log(this.k);
+            else {
+              break;
+            }
           }
-          else {
-            break;
-          }
-        }
+          this.active_job_post = value[this.get.job_post_state.value];
+          console.log(this.active_job_post);
+          this.get.get_employee(this.active_job_post.job_post,
+            this.active_job_post.job_salary,
+            this.active_job_post.job_experience,
+            this.active_job_post.job_education,
+            this.active_job_post.eyer_location,
+            this.active_job_post.job_age,
+            this.active_job_post.job_gender).then( (res) => {
+            this.results = this.get.results_eyee_details;
+            console.log(this.results);
+            this.http.get(`http://127.0.0.1:8000/EmployerDetailsFav/?eyer_id=${this.eyer_details.id}`).subscribe( (data:any) => {
+              this.fav = data;
+              for(var i=0; i>=0;i++) {
+                if(this.fav[i]) {
+                  if(this.fav[i].unliked == false) {
+                    this.selectedIndex.push(this.fav[i].eyee_id);
+                  }
+                  this.k++;
+                  console.log(this.k);
+                }
+                else {
+                  break;
+                }
+              }
+            });
+          });
+        });
       });
+      
     });
   }
 }

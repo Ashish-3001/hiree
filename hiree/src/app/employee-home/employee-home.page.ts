@@ -15,7 +15,7 @@ export class EmployeeHomePage implements OnInit {
   k:number =0;
   fav: object = [{ }];
   eyee_details:any;
-  results_job: object = [{  }];
+  results_job: any;
 
   constructor(
     public menuCtrl: MenuController,
@@ -28,8 +28,7 @@ export class EmployeeHomePage implements OnInit {
   }
 
   ngOnInit() {
-    this.get.get_job_post();
-
+    
   }
 
   like(f, a) {
@@ -96,29 +95,37 @@ export class EmployeeHomePage implements OnInit {
 
   ionViewWillEnter() {
     this.menuCtrl.enable(true); 
-
   }
 
   ionViewDidEnter() {
-    this.results_job = this.get.results_job_post;
-    
     this.authService.data.then((value:any) => {
       this.eyee_details = value;
       console.log(value);
-      this.http.get(`http://127.0.0.1:8000/EmployeeDetailsFav/?eyee_id=${this.eyee_details.id}&unliked=`).subscribe( (data:any) => {
-        this.fav = data;
-        for(var i=0; i>=0;i++) {
-          if(this.fav[i].job_id) {
-            if(this.fav[i].unliked == false) {
-              this.selectedIndex.push(this.fav[i].job_id);
+      this.get.get_job_post(value.eyee_choice,
+        value.eyee_salary_expected,
+        value.eyee_address_2,
+        value.eyee_education,
+        value.eyee_age,
+        value.eyee_gender,
+        value.eyee_pre_experience,
+        value.eyee_type_hotel).then((res:any) => {
+        this.results_job = this.get.results_job_post;
+        console.log(this.results_job);
+        this.http.get(`http://127.0.0.1:8000/EmployeeDetailsFav/?eyee_id=${this.eyee_details.id}&unliked=`).subscribe( (data:any) => {
+          this.fav = data;
+          for(var i=0; i>=0;i++) {
+            if(this.fav[i]) {
+              if(this.fav[i].unliked == false) {
+                this.selectedIndex.push(this.fav[i].job_id);
+              }
+              this.k++;
+              console.log(this.k);
             }
-            this.k++;
-            console.log(this.k);
+            else {
+              break;
+            }
           }
-          else {
-            break;
-          }
-        }
+        });
       });
     });
   }

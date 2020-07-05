@@ -73,6 +73,9 @@ export class ApplicationStatusPage implements OnInit {
     else if(page == "Applied Jobs") {
       this.page_state = "Applied Jobs";
     }
+    if(this.job_post_toggle == true) {
+      this.job_post_toggle = !this.job_post_toggle;
+    }
   }
   state1(i) {
     this.job_post_toggle = !this.job_post_toggle;
