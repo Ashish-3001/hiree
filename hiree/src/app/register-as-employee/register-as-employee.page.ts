@@ -2,12 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
 import { PostService } from '../servvices/post.service';
+import { AlertController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-register-as-employee',
   templateUrl: './register-as-employee.page.html',
   styleUrls: ['./register-as-employee.page.scss'],
 })
+
 export class RegisterAsEmployeePage implements OnInit {
 
   constructor(public menuCtrl: MenuController, private postdata:PostService) { }
@@ -39,6 +42,7 @@ export class RegisterAsEmployeePage implements OnInit {
       eyee_add_skills: form.value.additionalSkills,
       eyee_salary_expected: 5000,
     }
+    
     
     this.postdata.post_employee_details(postdata);
   }
