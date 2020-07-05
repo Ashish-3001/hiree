@@ -2,54 +2,80 @@
   <ion-toolbar>
     <ion-title><ion-title><ion-text color="secondary">
       <div class="heading">Hiree</div>
-    </ion-text></ion-title></ion-title>
+    </ion-text></ion-title>
+  </ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
   <form #form="ngForm" (ngSubmit)="onSubmit(form)">
   <ion-grid>
     <ion-row>
+      <ion-col size-md="6" offset-med="6">
+        <div class="req">* Required</div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
       <ion-col size-md="6" offset-md="3">
         <ion-item>
-          <ion-label position="floating">Full Name:</ion-label>
-          <ion-input type = 'text' ngModel name ="Name"></ion-input>
+          <ion-label position="floating">Full Name:*</ion-label>
+          <ion-input type = 'text' ngModel name ="Name" required #nameCtrl="ngModel"></ion-input>
         </ion-item>
+        <ion-item *ngIf="!nameCtrl.valid && nameCtrl.touched" lines="none">
+         <div class="warn">  Please Enter Your Name</div>
+        </ion-item>
+
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size-md="6" offset-md="3">   
         <ion-item>
-          <ion-label position="floating">Aadhar Number</ion-label>
-          <ion-input type = 'number' ngModel name ="aadhar"></ion-input>
+          <ion-label position="floating">Aadhar Number:*</ion-label>
+          <ion-input type = 'text' inputmode="numeric" ngModel name ="aadhar"required minlength="12" maxlength="12" #aadCtrl="ngModel" ></ion-input>
         </ion-item>
+        <ion-item *ngIf="!aadCtrl.valid && aadCtrl.touched" lines="none">
+          <div class="warn">  Please Do not leave spaces in between</div>
+         </ion-item>
+ 
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size-md="6" offset-md="3">
         <ion-item>
-          <ion-label position="floating">Age:</ion-label>
-          <ion-input type = 'number'ngModel name ="age" ></ion-input>
+          <ion-label position="floating">Age:*</ion-label>
+          <ion-input type = 'number'ngModel name ="age" required #ageCtrl="ngModel"></ion-input>
         </ion-item>
+        <ion-item *ngIf="!ageCtrl.valid && ageCtrl.touched" lines="none">
+          <div class="warn">Please Enter Your Age</div>
+         </ion-item>
+ 
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size-md="6" offset-md="3">
        <ion-item>
-          <ion-label>Gender:</ion-label>
-          <ion-select interface="popover"ngModel name ="gender">
+          <ion-label>Gender:*</ion-label>
+          <ion-select interface="popover"ngModel name ="gender" required #genderCtrl="ngModel">
             <ion-select-option value="M">Male</ion-select-option>
             <ion-select-option value="F">Female</ion-select-option>
             <ion-select-option value="O">Others</ion-select-option>
           </ion-select>
         </ion-item> 
+        <ion-item *ngIf="!genderCtrl.valid && genderCtrl.touched" lines="none">
+          <div class="warn">  Please Enter Valid Gender</div>
+         </ion-item>
+ 
       </ion-col>
     </ion-row>
     <ion-row>
         <ion-col size-md="6" offset-md="3">       
        <ion-item>
-        <ion-label position="floating">Address 1:</ion-label>
-        <ion-input type = 'text'ngModel name ="address1"></ion-input>
+        <ion-label position="floating">Address 1:*</ion-label>
+        <ion-input type = 'text'ngModel name ="address1" required #addCtrl="ngModel"></ion-input>
        </ion-item>
+       <ion-item *ngIf="!addCtrl.valid && addCtrl.touched" lines="none">
+        <div class="warn">  Please Enter Valid Address</div>
+       </ion-item>
+
         </ion-col>
     </ion-row>
     <ion-row>
@@ -63,16 +89,20 @@
      <ion-row>
         <ion-col size-md="6" offset-md="3">
        <ion-item>
-        <ion-label position="floating">City:</ion-label>
-        <ion-input type = 'text'ngModel name ="city" autocomplete autocorrect></ion-input>
+        <ion-label position="floating">City:*</ion-label>
+        <ion-input type = 'text'ngModel name ="city" autocomplete autocorrect required #cityCtrl="ngModel"> </ion-input>
        </ion-item>
+       <ion-item *ngIf="!cityCtrl.valid && cityCtrl.touched" lines="none">
+        <div class="warn">  Please Enter Valid City</div>
+       </ion-item>
+
         </ion-col>
      </ion-row>
      <ion-row>
         <ion-col size-md="6" offset-md="3">
          <ion-item>
-            <ion-label>State:</ion-label>
-           <ion-select interface="popover"ngModel name ="state">
+            <ion-label>State:*</ion-label>
+           <ion-select interface="popover"ngModel name ="state" required #stateCtrl="ngModel">
             <ion-select-option value="Andhra Pradesh">Andhra Pradesh</ion-select-option>
             <ion-select-option value="Arunachal Pradesh">Arunachal Pradesh</ion-select-option>
             <ion-select-option value="Assam">Assam</ion-select-option>
@@ -105,13 +135,17 @@
             <ion-select-option value="West Bengal">West Bengal</ion-select-option>
             </ion-select>
          </ion-item>
+         <ion-item *ngIf="!stateCtrl.valid && stateCtrl.touched" lines="none">
+          <div class="warn">  Please Enter Valid State</div>
+         </ion-item>
+ 
         </ion-col> 
      </ion-row>
     <ion-row>
       <ion-col size-md="6" offset-md="3">
          <ion-item>
-           <ion-label>Type of Hotel to work in:</ion-label>
-           <ion-select multiple="true" cancelText="Cancel" okText="Confirm" ngModel name ="type">
+           <ion-label>Type of Hotel to work in:*</ion-label>
+           <ion-select multiple="true" cancelText="Cancel" okText="Confirm" ngModel name ="type" required #typeCtrl="ngModel">
             <ion-select-option value="5 Star">5 Star</ion-select-option>
             <ion-select-option value="3 Star">3 Star</ion-select-option>
             <ion-select-option value="Fine Dining">Fine Dining</ion-select-option>
@@ -127,13 +161,17 @@
             <ion-select-option value="Juice Bar">Juice Bar</ion-select-option>
            </ion-select>
          </ion-item>
+         <ion-item *ngIf="!typeCtrl.valid && typeCtrl.touched" lines="none">
+          <div class="warn">  Please Enter Valid Type of Hotel</div>
+         </ion-item>
+ 
       </ion-col>
     </ion-row>
      <ion-row>
          <ion-col size-md="6" offset-md="3">
            <ion-item>
-            <ion-label>Education:</ion-label>
-            <ion-select interface="popover" ngModel name ="education">
+            <ion-label>Education:*</ion-label>
+            <ion-select interface="popover" ngModel name ="education" required #edCtrl="ngModel"> 
               <ion-select-option value="None">None</ion-select-option>
               <ion-select-option value="tenth">Tenth</ion-select-option>
               <ion-select-option value="intermediate">Intermediate</ion-select-option>
@@ -143,13 +181,17 @@
               <ion-select-option value="PhD">Ph.D</ion-select-option>
             </ion-select>
            </ion-item> 
+           <ion-item *ngIf="!edCtrl.valid && edCtrl.touched" lines="none">
+            <div class="warn">  Please Enter Valid Education Credentials</div>
+           </ion-item>
+   
          </ion-col>
      </ion-row>
       <ion-row>
         <ion-col size-md="6" offset-md="3">   
          <ion-item>
-            <ion-label>Area of Choice:</ion-label>
-            <ion-select multiple="true" cancelText="Cancel" okText="Confirm" ngModel name ="choice">
+            <ion-label>Area of Choice:*</ion-label>
+            <ion-select multiple="true" cancelText="Cancel" okText="Confirm" ngModel name ="choice" required #areaCtrl="ngModel">
             <ion-select-option value="Bartender">Bartender</ion-select-option>
             <ion-select-option value="Chef">Chef</ion-select-option>
             <ion-select-option value="Delivery Person">Delivery Person</ion-select-option>
@@ -159,26 +201,38 @@
             <ion-select-option value="Waiter">Waiter</ion-select-option>        
             </ion-select>
          </ion-item>
+         <ion-item *ngIf="!areaCtrl.valid && areaCtrl.touched" lines="none">
+          <div class="warn">  Please Enter Your Desired Position</div>
+         </ion-item>
+ 
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col size-md="6" offset-md="3">
          <ion-item>
-          <ion-label>Time of work:</ion-label>
-          <ion-select interface="popover"ngModel name ="time">
+          <ion-label>Time of work:*</ion-label>
+          <ion-select interface="popover"ngModel name ="time" required #timeCtrl="ngModel">
             <ion-select-option value="0-6 hrs">0-6 hrs</ion-select-option>
             <ion-select-option value="6-8 hrs">6-8 hrs</ion-select-option>
             <ion-select-option value="8-14 hrs">8-14 hrs</ion-select-option>
           </ion-select>
           </ion-item>
+          <ion-item *ngIf="!timeCtrl.valid && timeCtrl.touched" lines="none">
+            <div class="warn">  Please Enter the amount of time</div>
+           </ion-item>
+   
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col size-md="6" offset-md="3">
          <ion-item>
-          <ion-label position="floating">Previous Experience(in years):</ion-label>
-          <ion-input type = 'number' ngModel name ="previousExperience"></ion-input>
+          <ion-label position="floating">Previous Experience(in years):*</ion-label>
+          <ion-input type = 'number' ngModel name ="previousExperience" required #expCtrl="ngModel"></ion-input>
          </ion-item>
+         <ion-item *ngIf="!expCtrl.valid && expCtrl.touched" lines="none">
+          <div class="warn">  Please Enter Valid Number </div>
+         </ion-item>
+ 
         </ion-col>
       </ion-row>
       <ion-row>
@@ -192,14 +246,19 @@
       <ion-row>
         <ion-col size-md="6" offset-md="3">
           <ion-item>
-            <ion-label position="floating">Additional Skills:</ion-label>
-            <ion-input type = 'text'ngModel name ="additionalSkills" ></ion-input>
+            <ion-label position="floating">Skills:*</ion-label>
+            <ion-input type = 'text'ngModel name ="additionalSkills" required #skillCtrl="ngModel"></ion-input>
           </ion-item>
+          <ion-item *ngIf="!skillCtrl.valid && skillCtrl.touched" lines="none">
+            <div class="warn">  Please Enter Your Skilss</div>
+           </ion-item>
+        
         </ion-col>
       </ion-row>
+      
       <ion-row>
         <ion-col size-md="6" offset-md="3">
-          <ion-button class="ion-margin-vertical" type="submit" size='default' color="secondary" expand="full" [routerLink]="['/login']">
+          <ion-button class="ion-margin-vertical" type="submit" [disabled]="!form.valid" size='default' color="secondary" expand="full" [routerLink]="['/login']">
             Go To Payment
           </ion-button>
         </ion-col>
