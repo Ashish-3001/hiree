@@ -23,6 +23,7 @@ export class FolderPage implements OnInit {
   active_job_post_name:any =[];
   eyer_details:any;
   results: any;
+  test:any;
 
   constructor(private activatedRoute: ActivatedRoute, 
     public menuCtrl: MenuController,
@@ -35,7 +36,10 @@ export class FolderPage implements OnInit {
   }
 
   ngOnInit() {
-    
+  }
+
+  test1() {
+    console.log(this.test);
   }
 
   state() {

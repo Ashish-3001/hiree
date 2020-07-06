@@ -16,6 +16,7 @@ export class EmployeeHomePage implements OnInit {
   fav: object = [{ }];
   eyee_details:any;
   results_job: any;
+  test:any;
 
   constructor(
     public menuCtrl: MenuController,
@@ -128,5 +129,9 @@ export class EmployeeHomePage implements OnInit {
         });
       });
     });
+  }
+
+  tset() {
+    console.log(this.test);
   }
 }
