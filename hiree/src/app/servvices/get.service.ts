@@ -192,8 +192,10 @@ export class GetService {
     return this.results_eyer_details;
   }
 
-  get_job_post(j_P:any,j_s:any,j_l:any,j_e:any,j_a:any,j_g:any,j_ex:any,j_c:any) {
-    return this.http.get(`http://127.0.0.1:8000/JobPost/?eyer_id=&job_active=true&job_post=${j_P}&job_salary=${j_s}&eyer_location=${j_l}&job_gender=${j_g}&job_education=${j_e}&job_experience=${j_ex}&job_age=${j_a}&negated_job_salary=&negated_eyer_location=&negated_job_gender=&negated_job_education=&negated_job_experience=&negated_job_age=`).toPromise().then( (data) =>{
+  get_job_post(j_P:any,j_s:any,j_l:any,j_e:any,j_a:any,j_g:any,j_ex:any,j_c:any,s:any) {
+    console.log(s);
+    this.results_job_post =[];
+    return this.http.get(`http://127.0.0.1:8000/JobPost/?eyer_id=&job_active=true&job_post=${j_P}&job_salary=${j_s}&eyer_location=${j_l}&job_gender=${j_g}&job_education=${j_e}&job_experience=${j_ex}&job_age=${j_a}&negated_job_salary=&negated_eyer_location=&negated_job_gender=&negated_job_education=&negated_job_experience=&negated_job_age=&search=${s}`).toPromise().then( (data) =>{
       for(var i=0; i>=0;i++) {
         if(data[i]) {
           if(this.results_job_post.some((item) => item.id === data[i].id)) {
@@ -208,7 +210,7 @@ export class GetService {
           break;
         }
       }
-      this.http.get(`http://127.0.0.1:8000/JobPost/?eyer_id=&job_active=true&job_post=${j_P}&job_salary=${j_s}&eyer_location=&job_gender=&job_education=${j_e}&job_experience=${j_ex}&job_age=&negated_job_salary=&negated_eyer_location=&negated_job_gender=&negated_job_education=&negated_job_experience=&negated_job_age=`).toPromise().then( (data:any) =>{ 
+      this.http.get(`http://127.0.0.1:8000/JobPost/?eyer_id=&job_active=true&job_post=${j_P}&job_salary=${j_s}&eyer_location=&job_gender=&job_education=${j_e}&job_experience=${j_ex}&job_age=&negated_job_salary=&negated_eyer_location=&negated_job_gender=&negated_job_education=&negated_job_experience=&negated_job_age=&search=${s}`).toPromise().then( (data:any) =>{ 
         for(var i=0; i>=0;i++) { 
           if(data[i]) {
             if(this.results_job_post.some((item) => item.id === data[i].id)) {
@@ -223,7 +225,7 @@ export class GetService {
             break;
           }
         }
-        this.http.get(`http://127.0.0.1:8000/JobPost/?eyer_id=&job_active=true&job_post=${j_P}&job_salary=${j_s}&eyer_location=&job_gender=&job_education=&job_experience=${j_ex}&job_age=&negated_job_salary=&negated_eyer_location=&negated_job_gender=&negated_job_education=${j_e}&negated_job_experience=&negated_job_age=`).toPromise().then( (data:any) =>{ 
+        this.http.get(`http://127.0.0.1:8000/JobPost/?eyer_id=&job_active=true&job_post=${j_P}&job_salary=${j_s}&eyer_location=&job_gender=&job_education=&job_experience=${j_ex}&job_age=&negated_job_salary=&negated_eyer_location=&negated_job_gender=&negated_job_education=${j_e}&negated_job_experience=&negated_job_age=&search=${s}`).toPromise().then( (data:any) =>{ 
           for(var i=0; i>=0;i++) {
             if(data[i]) {
               if(this.results_job_post.some((item) => item.id === data[i].id)) {
@@ -238,7 +240,7 @@ export class GetService {
               break;
             }
           }
-          this.http.get(`http://127.0.0.1:8000/JobPost/?eyer_id=&job_active=true&job_post=${j_P}&job_salary=${j_s}&eyer_location=&job_gender=&job_education=${j_e}&job_experience=&job_age=&negated_job_salary=&negated_eyer_location=&negated_job_gender=&negated_job_education=&negated_job_experience=${j_ex}&negated_job_age=`).toPromise().then( (data:any) =>{ 
+          this.http.get(`http://127.0.0.1:8000/JobPost/?eyer_id=&job_active=true&job_post=${j_P}&job_salary=${j_s}&eyer_location=&job_gender=&job_education=${j_e}&job_experience=&job_age=&negated_job_salary=&negated_eyer_location=&negated_job_gender=&negated_job_education=&negated_job_experience=${j_ex}&negated_job_age=&search=${s}`).toPromise().then( (data:any) =>{ 
             for(var i=0; i>=0;i++) {
               if(data[i]) {
                 if(this.results_job_post.some((item) => item.id === data[i].id)) {
@@ -253,7 +255,7 @@ export class GetService {
                 break;
               }
             }
-            this.http.get(`http://127.0.0.1:8000/JobPost/?eyer_id=&job_active=true&job_post=${j_P}&job_salary=&eyer_location=&job_gender=&job_education=${j_e}&job_experience=${j_ex}&job_age=&negated_job_salary=${j_s}&negated_eyer_location=&negated_job_gender=&negated_job_education=&negated_job_experience=&negated_job_age=`).toPromise().then( (data:any) =>{ 
+            this.http.get(`http://127.0.0.1:8000/JobPost/?eyer_id=&job_active=true&job_post=${j_P}&job_salary=&eyer_location=&job_gender=&job_education=${j_e}&job_experience=${j_ex}&job_age=&negated_job_salary=${j_s}&negated_eyer_location=&negated_job_gender=&negated_job_education=&negated_job_experience=&negated_job_age=&search=${s}`).toPromise().then( (data:any) =>{ 
               for(var i=0; i>=0;i++) {
                 if(data[i]) {
                   if(this.results_job_post.some((item) => item.id === data[i].id)) {
@@ -268,7 +270,7 @@ export class GetService {
                   break;
                 }
               }
-              this.http.get(`http://127.0.0.1:8000/JobPost/?eyer_id=&job_active=true&job_post=${j_P}&job_salary=${j_s}&eyer_location=&job_gender=&job_education=&job_experience=&job_age=&negated_job_salary=&negated_eyer_location=&negated_job_gender=&negated_job_education=${j_e}&negated_job_experience=${j_ex}&negated_job_age=`).toPromise().then( (data:any) =>{ 
+              this.http.get(`http://127.0.0.1:8000/JobPost/?eyer_id=&job_active=true&job_post=${j_P}&job_salary=${j_s}&eyer_location=&job_gender=&job_education=&job_experience=&job_age=&negated_job_salary=&negated_eyer_location=&negated_job_gender=&negated_job_education=${j_e}&negated_job_experience=${j_ex}&negated_job_age=&search=&search=${s}`).toPromise().then( (data:any) =>{ 
                 for(var i=0; i>=0;i++) {
                   if(data[i]) {
                     if(this.results_job_post.some((item) => item.id === data[i].id)) {
@@ -283,7 +285,7 @@ export class GetService {
                     break;
                   }
                 }
-                this.http.get(`http://127.0.0.1:8000/JobPost/?eyer_id=&job_active=true&job_post=${j_P}&job_salary=&eyer_location=&job_gender=&job_education=&job_experience=${j_ex}&job_age=&negated_job_salary=${j_s}&negated_eyer_location=&negated_job_gender=&negated_job_education=${j_e}&negated_job_experience=&negated_job_age=`).toPromise().then( (data:any) =>{ 
+                this.http.get(`http://127.0.0.1:8000/JobPost/?eyer_id=&job_active=true&job_post=${j_P}&job_salary=&eyer_location=&job_gender=&job_education=&job_experience=${j_ex}&job_age=&negated_job_salary=${j_s}&negated_eyer_location=&negated_job_gender=&negated_job_education=${j_e}&negated_job_experience=&negated_job_age=&search=&search=${s}`).toPromise().then( (data:any) =>{ 
                   for(var i=0; i>=0;i++) {
                     if(data[i]) {
                       if(this.results_job_post.some((item) => item.id === data[i].id)) {
@@ -298,7 +300,7 @@ export class GetService {
                       break;
                     }
                   }
-                  this.http.get(`http://127.0.0.1:8000/JobPost/?eyer_id=&job_active=true&job_post=${j_P}&job_salary=&eyer_location=&job_gender=&job_education=${j_e}&job_experience=&job_age=&negated_job_salary=${j_s}&negated_eyer_location=&negated_job_gender=&negated_job_education=&negated_job_experience=${j_ex}&negated_job_age=`).toPromise().then( (data:any) =>{ 
+                  this.http.get(`http://127.0.0.1:8000/JobPost/?eyer_id=&job_active=true&job_post=${j_P}&job_salary=&eyer_location=&job_gender=&job_education=${j_e}&job_experience=&job_age=&negated_job_salary=${j_s}&negated_eyer_location=&negated_job_gender=&negated_job_education=&negated_job_experience=${j_ex}&negated_job_age=&search=&search=${s}`).toPromise().then( (data:any) =>{ 
                     for(var i=0; i>=0;i++) {
                       if(data[i]) {
                         if(this.results_job_post.some((item) => item.id === data[i].id)) {
@@ -322,7 +324,6 @@ export class GetService {
         });
       });
     });
-    
   }
   get data() {
     return this.results_job_post;

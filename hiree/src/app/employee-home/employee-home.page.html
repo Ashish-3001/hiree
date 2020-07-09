@@ -10,7 +10,41 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-searchbar enterkeyhint="enter" [(ngModel)] ="test" (keyup.enter)="tset()"></ion-searchbar>
+  <ion-searchbar placeholder = 'search jobs by role,hotel name,location' enterkeyhint="enter" [(ngModel)] ="test" (keyup.enter)="ionViewDidEnter()" (ionClear)=" this.search_state = false || ionViewDidEnter() || test=''  " (ionFocus)="this.search_state = true"></ion-searchbar>
+  <div *ngIf="this.search_state == true">
+    <ion-list>
+      <ion-list-header>
+        <h5>Change Search profession:</h5>
+      </ion-list-header>
+      <ion-item (click)="tset('manager')" >
+        manager
+      </ion-item>
+      <ion-item (click)="tset('chef')">
+        chef
+      </ion-item>
+      <ion-item (click)="tset('janitor')">
+        janitor
+      </ion-item>
+      <ion-item (click)="tset('bartender')">
+        bartender
+      </ion-item>
+      <ion-item (click)="tset('delivery person')">
+        delivery person
+      </ion-item>
+      <ion-item (click)="tset('receptionist')">
+        receptionist
+      </ion-item>
+      <ion-item (click)="tset('waiter')">
+        waiter
+      </ion-item>
+      <ion-list-header>
+        <h5>or Search For Specific Hotel to see if they have vacancies: <br> Eg: Taj Hotel</h5>
+      </ion-list-header>
+      <ion-list-header>
+        <h5>or You can Search For Specific Location <br> Eg: HSR Layout</h5>
+      </ion-list-header>
+    </ion-list>
+  </div>
   <ion-grid>
     <ion-row>
       <ion-col size-md="6" offset-md="3">

@@ -12,11 +12,13 @@ import { AuthenticationService } from '../servvices/authentication.service';
 export class EmployeeHomePage implements OnInit {
   public selectedIndex = [];
   
+
   k:number =0;
   fav: object = [{ }];
   eyee_details:any;
   results_job: any;
-  test:any;
+  test:any ="";
+  search_state:boolean = false;
 
   constructor(
     public menuCtrl: MenuController,
@@ -102,14 +104,28 @@ export class EmployeeHomePage implements OnInit {
     this.authService.data.then((value:any) => {
       this.eyee_details = value;
       console.log(value);
-      this.get.get_job_post(value.eyee_choice,
+      console.log(this.test);
+      if(this.test.toLowerCase() == "manager" || 
+        this.test.toLowerCase() == "chef" || 
+        this.test.toLowerCase() == "janitor" ||
+        this.test.toLowerCase() == "bartender" ||
+        this.test.toLowerCase() == "delivery person" ||
+        this.test.toLowerCase() == "receptionist" ||
+        this.test.toLowerCase() == "waiter" ) {
+        var eyee_choice = this.test;
+      }
+      else {
+        eyee_choice = value.eyee_choice;
+      }
+      this.get.get_job_post(eyee_choice,
         value.eyee_salary_expected,
         value.eyee_address_2,
         value.eyee_education,
         value.eyee_age,
         value.eyee_gender,
         value.eyee_pre_experience,
-        value.eyee_type_hotel).then((res:any) => {
+        value.eyee_type_hotel,
+        this.test).then((res:any) => {
         this.results_job = this.get.results_job_post;
         console.log(this.results_job);
         this.http.get(`http://127.0.0.1:8000/EmployeeDetailsFav/?eyee_id=${this.eyee_details.id}&unliked=`).subscribe( (data:any) => {
@@ -131,7 +147,10 @@ export class EmployeeHomePage implements OnInit {
     });
   }
 
-  tset() {
-    console.log(this.test);
+  tset(search:string) {
+    this.search_state = !this.search_state;
+    this.test = search;
+    console.log(search);
+    this.ionViewDidEnter();
   }
 }
