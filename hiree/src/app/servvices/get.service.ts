@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthenticationService } from './authentication.service';
 import { BehaviorSubject } from 'rxjs';
 import { AppComponent } from '../app.component';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -21,24 +22,34 @@ export class GetService {
   i:number = 0;
 
 
-  constructor( private http:HttpClient, private authService: AuthenticationService, private menu: AppComponent) 
+  constructor( private http:HttpClient, 
+    private authService: AuthenticationService, 
+    private menu: AppComponent,
+    private router: Router) 
   {
   }
 
-  login(login_id:any, login_pas:any) {
+  login(login_id:any) {
     this.http.get('http://127.0.0.1:8000/UserLogin/').subscribe( (data) =>{      
       this.dat = data;
+      var state:boolean = false;
       for(this.i; this.i >= 0; this.i++){
-        if(login_id == this.dat[this.i].user_phone_no || login_id == this.dat[this.i].user_email){
-          if(login_pas == this.dat[this.i].user_password) {
+        if(this.dat[this.i]) {
+          if(login_id == this.dat[this.i].user_phone_no){
             this.authService.login(this.dat[this.i].user_type, this.dat[this.i].id);
             this.logged_user_id.next(this.dat[this.i].id);
+            state = true;
             console.log(this.menu.state);
             console.log(this.dat[this.i].id);
             break;
           }
+        }
+        else {
           break;
         }
+      }
+      if(state== false) {
+        this.router.navigate(['register']);
       }
     });
   }

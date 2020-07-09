@@ -18,7 +18,6 @@ export class LoginPage implements OnInit {
 
   verify = "";
   public login_id = "";
-  public login_pas = "";
   dat: any;
   
 
@@ -41,8 +40,7 @@ export class LoginPage implements OnInit {
   }
 
   LogIn_var() {
-    this.login.login(this.login_id,this.login_pas);
-    
+    this.login.login(this.login_id); 
   }
 
   ionViewWillLeave() {
