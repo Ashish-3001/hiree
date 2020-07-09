@@ -1,41 +1,36 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title><ion-text color="secondary">
-      <div class="heading">Hiree</div>
-    </ion-text></ion-title>
+    <ion-title><ion-title><ion-text color="secondary">
+        <div class="heading">Hiree</div>
+      </ion-text></ion-title> </ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>  
     <ion-grid>
-      <ion-row>
-        <ion-col size-md="6" offset-md="3">
-          <div class="ion-text-center">
-          <h1>Welcome To <br> Hiree Job App</h1>
-          </div>
-        </ion-col>
-      </ion-row>
+      
       <ion-row>
           <ion-col size-md="6" offset-md="3">
-              <ion-card>
-                  <ion-card-header>
-                      <ion-card-title>LogIn </ion-card-title>
-                  </ion-card-header>
-                  <ion-card-content >
-                      <ion-item>
-                          <ion-label position="floating">Phone No:</ion-label>
-                          <ion-input 
-                          type = 'tel'
-                           required 
-                            [(ngModel)] ="login_id">
-                          </ion-input>
-                      </ion-item>
-                      <ion-item class="ion-float-right">
-                        <ion-button class="ion-margin-vertical"  size='default' (click) = "LogIn_var()" [routerLink]="[verify]">LogIn</ion-button>
-                      </ion-item>
-                  </ion-card-content>
-              </ion-card>
-          </ion-col>
-      </ion-row>
-    </ion-grid>
-  
+        <div class="box" >
+          <div class="welcome"><h2> Welcome To</h2></div>
+       <ion-text color="secondary">
+        <div class="title">Hiree</div>
+      </ion-text> 
+      <ion-text color="secondary">
+        <div class="titel">Job Application</div>
+      </ion-text>      
+        </div>
+        <div></div>
+        <div class="box1" >
+          <ion-text color="primary">
+            <div class="det">Hiree Job Application is a one stop destination for Hiring or getting Hired...</div>
+          </ion-text>          
+        </div>      
+      </ion-col>
+     </ion-row>     
+    </ion-grid> 
   </ion-content>
+  <ion-footer>
+    <ion-input placeholder="enter your phone number" type = 'tel'required [(ngModel)] ="login_id"></ion-input>
+    <ion-icon name="arrow-forward" (click) = "LogIn_var()" [routerLink]="[verify]"></ion-icon>
+                    
+  </ion-footer>

@@ -7,6 +7,7 @@ import { AppComponent } from '../app.component';
 import { HttpClient } from '@angular/common/http';
 import { GetService } from './get.service';
 
+
 const TOKEN_KEY = 'auth-token';
 const DATA_KEY = 'n';
 

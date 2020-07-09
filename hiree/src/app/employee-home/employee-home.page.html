@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-searchbar placeholder = 'search jobs by role,hotel name,location' enterkeyhint="enter" [(ngModel)] ="test" (keyup.enter)="this.search_state = false || ionViewDidEnter()" (ionClear)=" this.search_state = false || ionViewDidEnter() || test=''  " (ionFocus)="this.search_state = true"></ion-searchbar>
+  <ion-searchbar placeholder = 'search jobs by role,hotel name,location' autocorrect autocomplete  enterkeyhint="enter" [(ngModel)] ="test" (keyup.enter)="ionViewDidEnter()" (ionClear)=" this.search_state = false || ionViewDidEnter() || test=''  " (ionFocus)="this.search_state = true"></ion-searchbar>
   <div *ngIf="this.search_state == true">
     <ion-list>
       <ion-list-header>
@@ -38,10 +38,10 @@
         waiter
       </ion-item>
       <ion-list-header>
-        <h5>or Search For Specific Hotel to see if they have vacancies: <br> Eg: Taj Hotel</h5>
+        <div class="or">or </div><div class="text">Search For Specific Hotel to see if they have vacancies: <br> Eg: Taj Hotel</div>>
       </ion-list-header>
       <ion-list-header>
-        <h5>or You can Search For Specific Location <br> Eg: HSR Layout</h5>
+        <div class="or">or</div> <div> You can Search For Specific Location <br> Eg: HSR Layout</div>
       </ion-list-header>
     </ion-list>
   </div>
