@@ -39,7 +39,7 @@ export class LoginPage implements OnInit {
     this.menuCtrl.enable(false);
   }
 
-  LogIn_var() {
+  LogIn_var(form: NgForm) {
     this.login.login(this.login_id); 
   }
 
