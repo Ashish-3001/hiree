@@ -25,13 +25,16 @@
                           <ion-label position="floating">Phone No:</ion-label>
                           <ion-input 
                           type = 'tel'
+                          minlength="10"
+                          maxlength="10"
                            required 
                             [(ngModel)] ="login_id">
+                            
                           </ion-input>
                       </ion-item>
                   </ion-card-content>
               </ion-card>
-              <ion-button color="success" expand="block" size='default' (click) = "LogIn_var()" [routerLink]="[verify]">Verify</ion-button>
+              <ion-button color="success" expand="block"  size='default' (click) = "LogIn_var()" [routerLink]="[verify]">Verify</ion-button>
           </ion-col>
       </ion-row>
     </ion-grid>
