@@ -32,7 +32,9 @@ export class GetService {
   login(login_id:any) {
     console.log('heyy');
     this.http.get('http://hiree-back-end.herokuapp.com/UserLogin/').subscribe( (data) =>{      
+      console.log('hii');
       this.dat = data;
+      console.log(data);
       var state:boolean = false;
       for(this.i; this.i >= 0; this.i++){
         if(this.dat[this.i]) {
