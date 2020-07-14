@@ -55,6 +55,7 @@ export class GetService {
         this.router.navigate(['register']);
       }
     });
+    console.log('hello');
   }
 
   get_employee(e_c:any,e_s:any,e_ex:any,e_e:any,e_l:any,e_a:any,e_g:any) {
