@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'register',
     pathMatch: 'full'
   },
   {
@@ -108,7 +108,8 @@ const routes: Routes = [
   {
     path: 'employer-profile',
     loadChildren: () => import('./employer-home/employer-profile/employer-profile.module').then( m => m.EmployerProfilePageModule)
-  },  {
+  },
+  {
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
