@@ -13,10 +13,7 @@ export class RegisterPage implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('http://hiree-back-end.herokuapp.com/UserLogin/').subscribe((data) => {
-      console.log(data);
-      this.data = data;
-    });
+    
   }
 
 }

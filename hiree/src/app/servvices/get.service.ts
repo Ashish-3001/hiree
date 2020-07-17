@@ -30,7 +30,6 @@ export class GetService {
   }
 
   login(login_id:any) {
-    console.log('heyy');
     this.http.get('http://hiree-back-end.herokuapp.com/UserLogin/').subscribe( (data) =>{      
       console.log('hii');
       this.dat = data;
@@ -55,7 +54,6 @@ export class GetService {
         this.router.navigate(['register']);
       }
     });
-    console.log('hello');
   }
 
   get_employee(e_c:any,e_s:any,e_ex:any,e_e:any,e_l:any,e_a:any,e_g:any) {

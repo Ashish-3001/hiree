@@ -40,8 +40,7 @@ export class LoginPage implements OnInit {
   }
 
   LogIn_var() {
-    this.login.login(this.login_id); 
-    console.log('12');
+    this.login.login(this.login_id);
   }
 
   ionViewWillLeave() {
