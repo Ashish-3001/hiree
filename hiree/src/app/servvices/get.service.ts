@@ -31,13 +31,15 @@ export class GetService {
 
   login(login_id:any) {
     this.http.get('http://hiree-back-end.herokuapp.com/UserLogin/').subscribe( (data) =>{      
-      console.log('hii');
       this.dat = data;
-      console.log(data);
+      console.log(this.dat);
       var state:boolean = false;
       for(this.i; this.i >= 0; this.i++){
+        console.log('hii');
         if(this.dat[this.i]) {
+          console.log('hi');
           if(login_id == this.dat[this.i].user_phone_no){
+            console.log('h');
             this.authService.login(this.dat[this.i].user_type, this.dat[this.i].id);
             this.logged_user_id.next(this.dat[this.i].id);
             state = true;
