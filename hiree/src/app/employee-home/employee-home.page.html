@@ -12,43 +12,45 @@
 <ion-content [fullscreen]="true">
   <ion-searchbar placeholder = 'search jobs by role,hotel name,location' autocorrect autocomplete  enterkeyhint="enter" [(ngModel)] ="test" (keyup.enter)="ionViewDidEnter()" (ionClear)=" this.search_state = false || ionViewDidEnter() || test=''  " (ionFocus)="this.search_state = true"></ion-searchbar>
   <div *ngIf="this.search_state == true">
-    <ion-list>
+    <ion-list>      
       <ion-list-header>
-        <h5>Change Search profession:</h5>
+        Tap to Change the Searching profession
       </ion-list-header>
-      <ion-item (click)="tset('manager')" >
+      <ion-chip (click)="tset('manager')" color="secondary">
         manager
-      </ion-item>
-      <ion-item (click)="tset('chef')">
+      </ion-chip>
+      <ion-chip (click)="tset('chef')" color="secondary">
         chef
-      </ion-item>
-      <ion-item (click)="tset('janitor')">
+      </ion-chip>
+      <ion-chip (click)="tset('janitor')" color="secondary">
         janitor
-      </ion-item>
-      <ion-item (click)="tset('bartender')">
+      </ion-chip>
+      <ion-chip (click)="tset('bartender')" color="secondary">
         bartender
-      </ion-item>
-      <ion-item (click)="tset('delivery person')">
+      </ion-chip>
+      <ion-chip (click)="tset('delivery person')" color="secondary">
         delivery person
-      </ion-item>
-      <ion-item (click)="tset('receptionist')">
+      </ion-chip>
+      <ion-chip (click)="tset('receptionist')" color="secondary">
         receptionist
-      </ion-item>
-      <ion-item (click)="tset('waiter')">
+      </ion-chip>
+      <ion-chip (click)="tset('waiter')" color="secondary">
         waiter
-      </ion-item>
+      </ion-chip>
+      <div class="or">OR</div>    
       <ion-list-header>
-        <div class="or">or </div><div class="text">Search For Specific Hotel to see if they have vacancies: <br> Eg: Taj Hotel</div>>
-      </ion-list-header>
+        <div class="text">Search For Specific Hotel to see if they have vacancies: <br> Eg: Taj Hotel</div>>
+        </ion-list-header>
+        <div class="or">OR</div>
       <ion-list-header>
-        <div class="or">or</div> <div> You can Search For Specific Location <br> Eg: HSR Layout</div>
-      </ion-list-header>
+      <div class="text">Search For Specific Location <br> Eg: HSR Layout</div>
+      </ion-list-header>       
     </ion-list>
   </div>
   <ion-grid>
     <ion-row>
       <ion-col size-md="6" offset-md="3">
-        <ion-card *ngFor = " let result of this.results_job; let i = index" >
+        <ion-card *ngFor = " let result of this.results_job; let i = index"  [routerLink] = "['./', result.id]" (click)='update(result.id)' >
           <ion-card-header color="light">
             <ion-row>
               <ion-col size="8">
@@ -67,18 +69,18 @@
           </ion-card-header>
           <ion-card-content>
             <ion-item>
-                Monthly Salary:<B> {{ result.job_salary }} </B>
+                Monthly Salary:<b> {{ result.job_salary }} </b>
             </ion-item>
             <ion-item>
-                Requried Experince: {{ result.job_experience }} 
+                Requried Experince:<b> {{ result.job_experience }} </b>
             </ion-item>
             <ion-item>
-                 Requried Employment: {{ result.job_employment }}
+                 Requried Employment:<b> {{ result.job_employment }}</b>
             </ion-item>
             <ion-item>
-                 Requried Skills: {{ result.job_skills}}
+                 Requried Skills:<b> {{ result.job_skills}} </b>
             </ion-item>
-             <ion-button  [routerLink] = "['./', result.id]" (click)='update(result.id)' color="success" expand="block">Apply for job</ion-button>
+             <ion-button  [routerLink] = "['./', result.id]" (click)='update(result.id)' expand="block">View Details</ion-button>
           </ion-card-content>
         </ion-card>
       </ion-col>

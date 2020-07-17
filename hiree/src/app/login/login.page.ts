@@ -40,7 +40,7 @@ export class LoginPage implements OnInit {
   }
 
   LogIn_var(form: NgForm) {
-    this.login.login(this.login_id); 
+    this.login.login(form.value.login_id); 
   }
 
   ionViewWillLeave() {

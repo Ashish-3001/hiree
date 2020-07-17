@@ -1,6 +1,7 @@
 
 <ion-content>
   <form #form="ngForm" (ngSubmit)="LogIn_var(form)">
+    
     <ion-grid>
       
       <ion-row>
@@ -12,20 +13,19 @@
               <div class="head">Job Application</div>
             </ion-text>
           </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col size-md="6" offset-md="3">
               <ion-item>                
                 <ion-input placeholder="Enter Your Phone Number" type = 'text' inputmode="numeric" minlength="10" maxlength="10"required ngModel name = "login_id" #phoneCtrl="ngModel"></ion-input>
               </ion-item>
               <ion-item *ngIf="!phoneCtrl.valid && phoneCtrl.touched" lines="none">
                 <div class="warn">Enter a valid phone number</div>
-               </ion-item>                 
-              <ion-button color="success"  [disabled]="!form.valid" expand="block" type=submit size='default'[routerLink]="[verify]">Verify</ion-button>
+              </ion-item>                 
+              <ion-button color="success"  [disabled]="!form.valid" fill="outline" expand="block" type=submit size='default'[routerLink]="[verify]">Verify<ion-icon name="checkmark-circle-sharp" color="success"></ion-icon></ion-button>
           </ion-col>
       </ion-row>
     </ion-grid>
-  </form>  
-    
   
-  </ion-content>
+  </form>  
+</ion-content>
