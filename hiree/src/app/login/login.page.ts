@@ -39,8 +39,8 @@ export class LoginPage implements OnInit {
     this.menuCtrl.enable(false);
   }
 
-  LogIn_var() {
-    this.login.login(this.login_id);
+  LogIn_var(form: NgForm) {
+    this.login.login(this.login_id); 
   }
 
   ionViewWillLeave() {
