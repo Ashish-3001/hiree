@@ -105,6 +105,7 @@ export class EmployeeHomePage implements OnInit {
       this.eyee_details = value;
       console.log(value);
       console.log(this.test);
+      var eyee_choice:any;
       if(this.test.toLowerCase() == "manager" || 
         this.test.toLowerCase() == "chef" || 
         this.test.toLowerCase() == "janitor" ||
@@ -112,7 +113,7 @@ export class EmployeeHomePage implements OnInit {
         this.test.toLowerCase() == "delivery person" ||
         this.test.toLowerCase() == "receptionist" ||
         this.test.toLowerCase() == "waiter" ) {
-        var eyee_choice = this.test;
+        eyee_choice = this.test;
       }
       else {
         eyee_choice = value.eyee_choice;
