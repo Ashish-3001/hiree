@@ -39,6 +39,7 @@ export class FolderPage implements OnInit {
 
   state() {
     this.job_post_toggle = !this.job_post_toggle;
+    console.log(this.get.job_post_state.value);
   }
  
   like(f, a) {

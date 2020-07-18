@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage'
 import { FolderPage } from './employer-home/employer-home.page';
 import { EmployeeHomePage } from './employee-home/employee-home.page';
+import { AuthInterceptor } from './token.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,8 +29,14 @@ import { EmployeeHomePage } from './employee-home/employee-home.page';
     SplashScreen,
     AppComponent,
     EmployeeHomePage,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {}
