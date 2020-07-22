@@ -13,6 +13,7 @@ import { IonicStorageModule } from '@ionic/storage'
 import { FolderPage } from './employer-home/employer-home.page';
 import { EmployeeHomePage } from './employee-home/employee-home.page';
 import { AuthInterceptor } from './token.interceptor';
+import { ErrorHandler, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [AppComponent],
@@ -36,7 +37,8 @@ import { AuthInterceptor } from './token.interceptor';
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 
 export class AppModule {}

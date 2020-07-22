@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/servvices/authentication.service';
 import { GetService } from 'src/app/servvices/get.service';
 import { HttpClient } from '@angular/common/http';
@@ -15,7 +15,8 @@ export class JobOfferPage implements OnInit {
     private acitivatedRoute: ActivatedRoute, 
     private authService: AuthenticationService,
     public get: GetService,
-    private http:HttpClient) { 
+    private http:HttpClient,
+    private router:Router) { 
       
     }
 
@@ -108,6 +109,7 @@ export class JobOfferPage implements OnInit {
         });
       });
     });
+    setTimeout(()=>{ this.router.navigate(['../employer-profile/employer-home']); }, 2000)
   }
 
 

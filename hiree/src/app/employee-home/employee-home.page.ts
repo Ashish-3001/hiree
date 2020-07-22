@@ -126,7 +126,8 @@ export class EmployeeHomePage implements OnInit {
         value.eyee_gender,
         value.eyee_pre_experience,
         value.eyee_type_hotel,
-        this.test).then((res:any) => {
+        this.test,
+        this.eyee_details.id).then((res:any) => {
         this.results_job = this.get.results_job_post;
         console.log(this.results_job);
         this.http.get(`http://127.0.0.1:8000/EmployeeDetailsFav/?eyee_id=${this.eyee_details.id}&unliked=`).subscribe( (data:any) => {

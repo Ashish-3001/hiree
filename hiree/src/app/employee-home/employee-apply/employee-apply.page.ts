@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { GetService } from 'src/app/servvices/get.service';
 import { AuthenticationService } from 'src/app/servvices/authentication.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -29,7 +29,8 @@ export class EmployeeApplyPage implements OnInit {
     private acitivatedRoute: ActivatedRoute, 
     private authService: AuthenticationService,
     public get: GetService,
-    private http:HttpClient,) 
+    private http:HttpClient,
+    private router: Router) 
     { }
 
   ngOnInit() {
@@ -69,6 +70,7 @@ export class EmployeeApplyPage implements OnInit {
     this.http.patch(`http://127.0.0.1:8000/JobPost/${this.postdata.job_id}/`, pacthjob).subscribe( (data) => {
       console.log(data);
     });
+    setTimeout(()=>{ this.router.navigate(['/employee-home']); }, 2000)
   }
 
 }

@@ -115,7 +115,8 @@ export class FolderPage implements OnInit {
             this.active_job_post.job_education,
             this.active_job_post.eyer_location,
             this.active_job_post.job_age,
-            this.active_job_post.job_gender).then( (res) => {
+            this.active_job_post.job_gender,
+            this.eyer_details.id).then( (res) => {
             this.results = this.get.results_eyee_details;
             console.log(this.results);
             this.http.get(`http://127.0.0.1:8000/EmployerDetailsFav/?eyer_id=${this.eyer_details.id}`).subscribe( (data:any) => {

@@ -31,7 +31,6 @@ export class AuthenticationService {
 
   login(type:string, user_id: number) {
     if(type == 'employee'){
-      this.router.navigate(['/employee-home']);
       this.http.get('http://127.0.0.1:8000/EmployeeDetails/').subscribe( (data) =>{
         console.log(data);
         for(var j=0; j >=0;j++) {
@@ -45,7 +44,6 @@ export class AuthenticationService {
       });
     }
     else if(type == 'employer') {
-      this.router.navigate(['employer-profile']);
       this.http.get('http://127.0.0.1:8000/EmployerDetails/').subscribe( (data) =>{
         console.log(data);
         for(var j=0; j >=0;j++) {
