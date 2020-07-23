@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { RegEmployerBasicPageRoutingModule } from './reg-employer-basic-routing.module';
 
 import { RegEmployerBasicPage } from './reg-employer-basic.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RegEmployerBasicPageRoutingModule
+    RegEmployerBasicPageRoutingModule,
+    SharedModule
   ],
   declarations: [RegEmployerBasicPage]
 })

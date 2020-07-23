@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from 'src/app/servvices/post.service';
 import { NgForm } from '@angular/forms';
+import { ModalController } from '@ionic/angular';
+import { OtpVerifyComponent } from 'src/app/shared/otp-verify/otp-verify.component';
 
 @Component({
   selector: 'app-reg-employee-basic',
@@ -8,7 +10,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./reg-employee-basic.page.scss'],
 })
 export class RegEmployeeBasicPage implements OnInit {
-  constructor(private postdata: PostService) { }
+  constructor(private modalCtrl: ModalController, private postdata: PostService) { }
 
   ngOnInit() {
   }
@@ -23,5 +25,8 @@ export class RegEmployeeBasicPage implements OnInit {
     }
 
     this.postdata.post_basic_details(postdata);
+    this.modalCtrl.create({component: OtpVerifyComponent }).then(modalEl => {
+      modalEl.present();
+    });
   }
 }

@@ -45,6 +45,7 @@ export class OtpVerifyComponent implements OnInit {
           }
         }
         else {
+          this.modalCtrl.dismiss();
           console.log("error state");
         }
       }
